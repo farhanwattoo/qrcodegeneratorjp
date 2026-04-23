@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="meta-title">無料QRコード生成ツール・一括作成サイト | アプリ不要で安全・商用フリー</title>
+    <meta id="meta-desc" name="description" content="完全無料でURL、PDF、WiFi、テキストをQRコード生成・一括作成できる安全なサイトです。PC(Chrome/Edge)やスマホに対応。商用利用可能でログも残らない極めて安全なフリーツールです。">
+    
+    <!-- Focus & LSI Keywords -->
+    <meta name="keywords" content="qrコード 生成, QRコード作成, 無料QRコード生成ツール, URL qrコード生成, pdf qrコード生成ツール, 一括生成, ランダム作成, vba, スプレッドシート, 安全, アプリ, 商用フリー">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://qrcodegeneratorjp.com/">
+    
+    <!-- Meta Robots -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+    <!-- Open Graph / LSI Semantic Context for Social & Search Entities -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="無料QRコード生成ツール・一括作成サイト | アプリ不要で安全・商用フリー">
+    <meta property="og:description" content="完全無料でURL、PDF、WiFi、テキストをQRコード生成・一括作成できる安全なサイトです。商用利用可能でログも残らない極めて安全なフリーツール。">
+    <meta property="og:url" content="https://qrcodegeneratorjp.com/">
+    <meta property="og:site_name" content="無料QRコード生成ツール Online">
+    
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="無料QRコード生成ツール・一括作成サイト | アプリ不要で安全・商用フリー">
+    <meta name="twitter:description" content="完全無料でURL、PDF、WiFi、テキストをQRコード生成・一括作成できる安全なサイトです。">
+    
+    <!-- Hreflang Indexing mapped via JS directly on initialization but static defaults -->
+    <link rel="alternate" hreflang="x-default" href="https://qrcodegeneratorjp.com/">
+    <link rel="alternate" hreflang="ja" href="https://qrcodegeneratorjp.com/">
+
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Client Side Engine -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.4.4/build/qrcode.min.js"></script>
+
+    <!-- Essential Initial Schema Markup for Root -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "QRコード生成 無料ツール",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "All",
+      "description": "無料で安全にURL、PDF、WiFi、テキストなどのQRコードを自動生成できるツールです。Chrome/Edge等のブラウザから利用可能。"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "QRコードの生成は無料でできますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい、当サイトのQRコード生成は完全無料（フリー）です。商用利用も可能です。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "どのようなデータからQRコードを生成できますか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "URLからQRコードを生成するほか、テキスト、メール、電話番号、WiFi設定などに対応しています。PDF用QRコード生成ツールとしてもお使いいただけます。"
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "セキュリティ対策は安全ですか？",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "はい。入力ログをサーバーに送信せず、ブラウザ上で直接QRコードを生成するため極めて安全です。"
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo-area" style="font-weight: 700; font-size: 1.2rem;" data-i18n="nav_brand">QR Generator</div>
+        <div class="nav-controls">
+            <select id="lang-switcher" class="lang-select" style="display: none;">
+                <option value="en">English (US)</option>
+                <option value="ja" selected>Ã¦â€”Â¥Ã¦Å“Â¬Ã¨ÂªÅ¾ (Japanese)</option>
+                <option value="th">Ã Â¹â€žÃ Â¸â€”Ã Â¸Â¢ (Thai)</option>
+                <option value="vi">TiÃ¡ÂºÂ¿ng ViÃ¡Â»â€¡t (Vietnamese)</option>
+                <option value="tr">TÃƒÂ¼rkÃƒÂ§e (Turkish)</option>
+                <option value="pl">Polski (Polish)</option>
+                <option value="id">Bahasa Indonesia</option>
+                <option value="ro">RomÃƒÂ¢nÃ„Æ’ (Romanian)</option>
+                <option value="ko">Ã­â€¢Å“ÃªÂµÂ­Ã¬â€“Â´ (Korean)</option>
+                <option value="de">Deutsch (German)</option>
+                <option value="fr">FranÃƒÂ§ais (French)</option>
+                <option value="es">EspaÃƒÂ±ol (Spanish)</option>
+                <option value="it">Italiano (Italian)</option>
+                <option value="cs">Ã„Å’eÃ…Â¡tina (Czech)</option>
+                <option value="hu">Magyar (Hungarian)</option>
+                <option value="el">ÃŽâ€¢ÃŽÂ»ÃŽÂ»ÃŽÂ·ÃŽÂ½ÃŽÂ¹ÃŽÂºÃŽÂ¬ (Greek)</option>
+                <option value="fi">Suomi (Finnish)</option>
+                <option value="da">Dansk (Danish)</option>
+                <option value="no">Norsk (Norwegian)</option>
+                <option value="sk">SlovenÃ„Âina (Slovak)</option>
+                <option value="bg">Ãâ€˜Ã‘Å ÃÂ»ÃÂ³ÃÂ°Ã‘â‚¬Ã‘ÂÃÂºÃÂ¸ (Bulgarian)</option>
+                <option value="ms">Bahasa Melayu (Malay)</option>
+                <option value="tl">Tagalog (Filipino)</option>
+                <option value="uk">ÃÂ£ÃÂºÃ‘â‚¬ÃÂ°Ã‘â€”ÃÂ½Ã‘ÂÃ‘Å’ÃÂºÃÂ° (Ukrainian)</option>
+                <option value="he">Ã—Â¢Ã—â€˜Ã—Â¨Ã—â„¢Ã—Âª (Hebrew)</option>
+                <option value="ar">Ã˜Â§Ã™â€žÃ˜Â¹Ã˜Â±Ã˜Â¨Ã™Å Ã˜Â© (Arabic)</option>
+            </select>
+            <button class="theme-toggle" id="theme-toggle">Ã°Å¸Å’â„¢</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- HERO TRANSACTIONAL INTENT -->
+        <section class="hero">
+            <h1>無料QRコード生成ツール Online</h1>
+            <p>完全無料で安全にURL、テキスト、WiFiなどのQRコードを自動生成・作成します。アプリ不要、ブラウザ上で極めてセキュアに生成できる商用利用可能なQRコード生成サイト（ツール）です。</p>
+        </section>
+
+        <!-- TOOL AREA -->
+        <section class="generator-wrap">
+            <div class="controls">
+                <!-- Tabs -->
+                <div class="tabs">
+                    <button class="tab active" data-target="url" data-i18n="tab_url">URL</button>
+                    <button class="tab" data-target="text" data-i18n="tab_text">テキスト</button>
+                    <button class="tab" data-target="email" data-i18n="tab_email">メール</button>
+                    <button class="tab" data-target="phone" data-i18n="tab_phone">電話</button>
+                    <button class="tab" data-target="wifi" data-i18n="tab_wifi">WiFi</button>
+                    <button class="tab" data-target="sms" data-i18n="tab_sms">SMS</button>
+                </div>
+
+                <!-- Input Panels -->
+                <div class="input-panel active" id="panel-url">
+                    <div class="input-group">
+                        <label data-i18n="label_url">URL</label>
+                        <input type="url" id="url-input" placeholder="https://example.com" data-i18n="ph_url">
+                    </div>
+                </div>
+
+                <div class="input-panel" id="panel-text">
+                    <div class="input-group">
+                        <label data-i18n="label_text">テキスト入力</label>
+                        <textarea id="text-input" rows="4" placeholder="内容を入力..." data-i18n="ph_text"></textarea>
+                    </div>
+                </div>
+
+                <div class="input-panel" id="panel-email">
+                    <div class="input-group">
+                        <label data-i18n="label_email">メールアドレス</label>
+                        <input type="email" id="email-input" placeholder="contact@example.com" data-i18n="ph_email">
+                    </div>
+                </div>
+
+                <div class="input-panel" id="panel-phone">
+                    <div class="input-group">
+                        <label data-i18n="label_phone">電話番号</label>
+                        <input type="tel" id="phone-input" placeholder="090-XXXX-XXXX" data-i18n="ph_phone">
+                    </div>
+                </div>
+                
+                <div class="input-panel" id="panel-wifi">
+                    <div class="input-group">
+                        <label data-i18n="label_wifi_ssid">ネットワーク名 (SSID)</label>
+                        <input type="text" id="wifi-ssid" placeholder="MyWiFi_5G" data-i18n="ph_wifi_ssid">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="label_wifi_pwd">パスワード</label>
+                        <input type="password" id="wifi-pwd" placeholder="*************" data-i18n="ph_wifi_pwd">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="label_wifi_enc">セキュリティ</label>
+                        <select id="wifi-enc" style="width: 100%;">
+                            <option value="WPA">WPA/WPA2</option>
+                            <option value="WEP">WEP Key</option>
+                            <option value="nopass">なし</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="input-panel" id="panel-sms">
+                    <div class="input-group">
+                        <label data-i18n="label_sms_to">送信先番号</label>
+                        <input type="tel" id="sms-to" placeholder="090..." data-i18n="ph_sms_to">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="label_sms_msg">メッセージ内容</label>
+                        <textarea id="sms-msg" rows="2" placeholder="メッセージ..." data-i18n="ph_sms_msg"></textarea>
+                    </div>
+                </div>
+
+                <!-- Customization Options Array -->
+                <div class="options-grid">
+                    <div class="input-group">
+                        <label data-i18n="opt_fg">QRコードの色</label>
+                        <input type="color" id="fg-color" value="#000000">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="opt_bg">背景色</label>
+                        <input type="color" id="bg-color" value="#ffffff">
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="opt_size">画像サイズ</label>
+                        <select id="size">
+                            <option value="200">200x200 px</option>
+                            <option value="300" selected>300x300 px</option>
+                            <option value="500">500x500 px</option>
+                            <option value="1000">1000x1000 px</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label data-i18n="opt_ec">エラー訂正レベル</label>
+                        <select id="error-cor">
+                            <option value="L">L (7% 復元)</option>
+                            <option value="M" selected>M (15% 復元)</option>
+                            <option value="Q">Q (25% 復元)</option>
+                            <option value="H">H (30% 復元)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Previews -->
+            <div class="preview-area">
+                <div id="qr-container" style="position: relative; display: inline-block;">
+                    <canvas id="qrcode-canvas" aria-label="Generated output format target"></canvas>
+                    <div id="scan-overlay" class="scan-overlay">
+                        <div class="laser"></div>
+                    </div>
+                    <div id="scan-result" class="scan-result"></div>
+                </div>
+                <div class="actions">
+                    <button class="btn" id="dl-png" data-i18n="btn_dl">QRコードをダウンロード (PNG)</button>
+                    <button class="btn btn-secondary" id="sim-scan" style="background: var(--text-color); color: var(--bg-color);">スキャン テスト</button>
+                </div>
+                <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--text-muted); padding: 0 1rem; text-align: center;" data-i18n="privacy_note">
+                    サーバー側でのデータ解析や保存は一切行われません。全てブラウザの内部メモリで処理されます。
+                </p>
+            </div>
+        </section>
+
+        <!-- DEEP INFORMATIVE / SEMANTIC INTENT -->
+        <section class="content-section">
+            <h2>QRコード生成無料ツールについて（使い方と仕組み）</h2>
+            
+            <h3>QRコード生成とは？</h3>
+            <p>QRコード生成とは、対象のテキストやURLリンクなどを2次元のバーコード（QRコード）へと変換・自動生成する仕組みです。当サイトは、PC（Windows/Mac）のブラウザ（Chrome QRコード生成、Edge QRコード生成、Firefox、Safari）からでも利用できる<strong>無料 QRコード生成 サイト（アプリ不要）</strong>です。</p>
+            
+            <h3>どのようなQRコードを生成できますか？</h3>
+            <p>当ツールは様々な用途のQRコード生成方法に対応しています：</p>
+            <ul>
+                <li><strong>URLからQRコードを生成（リンク qrコード生成）：</strong> YouTube動画QRコード生成、GoogleフォームQRコード生成、Instagram（インスタ）やTwitter（X）用など。</li>
+                <li><strong>PDF QRコード生成：</strong> オンライン上のPDFリンクを指定するだけで、無料PDF用QRコード生成ツールやメニュー表代わりとして利用可能です。</li>
+                <li><strong>WiFi QRコード 生成：</strong> カフェなどのSSIDとパスワードのQRコードを生成します。</li>
+                <li><strong>連絡先（電話帳・メールアドレス）QRコード生成：</strong> vCard形式でアドレス情報をQRコード化します。</li>
+            </ul>
+
+            <h3>システム開発・プログラムへの組み込みについて</h3>
+            <p>開発者の方は、プログラミング言語ごとの<strong>QRコード生成ライブラリやAPI</strong>をお探しかもしれません。参考までに、様々な技術が存在しています：</p>
+            <ul>
+                <li><strong>サーバー・バックエンド（サーバー処理）：</strong> Python QRコード生成、PHP QRコード 生成（CakePHP / Laravel QRコード 生成）、Java QRコード生成、Rails QRコード生成、C#、VB.NET QRコード 生成など。</li>
+                <li><strong>フロント・スマホアプリ：</strong> JavaScript QRコード生成（React QRコード生成 / Vue QRコード生成 / jquery qrコード生成）、Flutter QRコード 生成、Swift QRコード 生成（iOS / iPhone QRコード生成）、Android QRコード 生成。Unity QRコード生成なども。</li>
+                <li><strong>業務ツール（エクセル・スプレッドシート・SaaS）：</strong> Excel QRコード生成、VBA QRコード生成（Excel VBA）、スプレッドシート QRコード生成（GAS QRコード 生成）、Kintone QRコード生成 プラグイン、FileMaker QRコード生成、Salesforce、AppSheet qrコード生成など。Wordやパワポ QRコード生成も自動化に活用されます。</li>
+                <li><strong>デザイン系の生成ソフト：</strong> Adobe（イラストレーター QRコード生成、インデザイン QRコード 自動生成）やCanvas（キャンバ qrコード生成）、Figma QRコード生成などで、ベクターデータ（SVG、EPS形式、透過）で出力し、おしゃれなロゴやデザインを作成可能です。</li>
+            </ul>
+            <p>上記のようにライブラリを利用して自作の「パラメータ化QRコード生成器」「QRコード大量一括生成」「qrコード ランダム生成」を作る際、最も重視すべきはセキュリティです。当サイトは通信を一切介さない<strong>安全なQRコード生成フリーソフト（Webサービス）</strong>として機能します。</p>
+
+            <!-- Semantic Specific FAQs -->
+            <div class="faq" style="margin-top: 3rem;">
+                <h3>よくある質問 (FAQ)・トラブルの原因</h3>
+                <div class="faq-item">
+                    <h4>生成したQRコードは商用利用可能ですか？</h4>
+                    <p>はい。当ウェブサービスは商用利用も完全無料（フリー）です。配送用QRコードの生成や印刷用QRコード生成、画像埋め込みなど、自由にお使いいただけます。（注意: デンソーウェーブの保有する特許の要件に違反しない一般的なご利用にお使いいただけます。）</p>
+                </div>
+                <div class="faq-item">
+                    <h4>「このコードは無効です。QRコードを再スキャンして新たにコードを生成してください。」「qrコードの生成に失敗しました」と出る場合は？</h4>
+                    <p>当サイトから出力される標準画像では基本的に発生しませんが、他社サービス特有（EPARK qrコード生成できない、LINE＠ QRコード 生成、かんたんデータコピー等）のアプリエラーの場合があります。当ツールでは、URLからQRコードを純粋に再生成する仕組みを提供しています。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>QRコードを生成する際のセキュリティ対策は？</h4>
+                    <p>外部のWebAPI経由でQRコード生成を行うと、入力したURLや内容が第3者に記録されるリスクがあります。当機密ツールはすべてお使いの「クライアントブラウザ側（JavaScript）」で自動生成を行うためプロセスが暗号化に依存せず、ログが残らず極めて安全です。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>画像の透過（PNG形式）やサイズ変更（小さいサイズ）はできますか？</h4>
+                    <p>オプション項目で「Render Size」を選ぶと画像の大きさを変更できます。また背景色やマージンを変更でき、高画質な画像としてダウンロードが可能です。マイクロQRコード生成などの特殊フォーマットは今後の対応予定です。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Internal Cross-Linking / Commercial Expansion Strategy -->
+        <footer id="semantic-links" style="background: #f9fafb; padding: 3rem 1rem; margin-top: 4rem; border-top: 1px solid #e5e7eb;">
+<div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem;">
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 1rem; color: #111827;">Core</h4>
+<ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8; font-size: 0.9rem;">
+<li><a href="/qr-code-generator.html" style="color: #4b5563; text-decoration: none;">QRコード 作成</a></li>
+<li><a href="/free-qr-code-generator.html" style="color: #4b5563; text-decoration: none;">QRコード 無料</a></li>
+<li><a href="/qr-code-online.html" style="color: #4b5563; text-decoration: none;">QRコード オンライン</a></li>
+</ul>
+</div>
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 1rem; color: #111827;">Type</h4>
+<ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8; font-size: 0.9rem;">
+<li><a href="/wifi-qr-code.html" style="color: #4b5563; text-decoration: none;">WiFi QRコード 作成</a></li>
+<li><a href="/line-qr-code.html" style="color: #4b5563; text-decoration: none;">LINE QRコード 作成</a></li>
+<li><a href="/url-qr-code.html" style="color: #4b5563; text-decoration: none;">URL QRコード 作成</a></li>
+<li><a href="/contact-qr-code.html" style="color: #4b5563; text-decoration: none;">連絡先 QRコード</a></li>
+<li><a href="/email-qr-code.html" style="color: #4b5563; text-decoration: none;">メール QRコード</a></li>
+</ul>
+</div>
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 1rem; color: #111827;">Use Case</h4>
+<ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8; font-size: 0.9rem;">
+<li><a href="/qr-code-for-menu.html" style="color: #4b5563; text-decoration: none;">メニュー QRコード</a></li>
+<li><a href="/qr-code-for-payment.html" style="color: #4b5563; text-decoration: none;">決済 QRコード</a></li>
+<li><a href="/qr-code-for-business-card.html" style="color: #4b5563; text-decoration: none;">名刺 QRコード</a></li>
+</ul>
+</div>
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 1rem; color: #111827;">Feature</h4>
+<ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8; font-size: 0.9rem;">
+<li><a href="/custom-qr-code.html" style="color: #4b5563; text-decoration: none;">デザイン QRコード</a></li>
+<li><a href="/color-qr-code.html" style="color: #4b5563; text-decoration: none;">カラー QRコード</a></li>
+<li><a href="/logo-qr-code.html" style="color: #4b5563; text-decoration: none;">ロゴ QRコード</a></li>
+</ul>
+</div>
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 1rem; color: #111827;">Format</h4>
+<ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8; font-size: 0.9rem;">
+<li><a href="/qr-code-svg.html" style="color: #4b5563; text-decoration: none;">QRコード SVG</a></li>
+<li><a href="/qr-code-png.html" style="color: #4b5563; text-decoration: none;">QRコード PNG</a></li>
+</ul>
+</div>
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 1rem; color: #111827;">Problem</h4>
+<ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8; font-size: 0.9rem;">
+<li><a href="/qr-code-not-working.html" style="color: #4b5563; text-decoration: none;">QRコード 読み取れない</a></li>
+<li><a href="/qr-code-size.html" style="color: #4b5563; text-decoration: none;">QRコード サイズ</a></li>
+</ul>
+</div>
+<div>
+<h4 style="font-size: 1rem; margin-bottom: 1rem; color: #111827;">Programmatic</h4>
+<ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8; font-size: 0.9rem;">
+<li><a href="/qr-code-for-restaurant.html" style="color: #4b5563; text-decoration: none;">飲食店 QRコード</a></li>
+<li><a href="/qr-code-for-salon.html" style="color: #4b5563; text-decoration: none;">美容室 QRコード</a></li>
+<li><a href="/qr-code-for-gym.html" style="color: #4b5563; text-decoration: none;">ジム QRコード</a></li>
+<li><a href="/qr-code-for-school.html" style="color: #4b5563; text-decoration: none;">学校 QRコード</a></li>
+<li><a href="/qr-code-for-real-estate.html" style="color: #4b5563; text-decoration: none;">不動産 QRコード</a></li>
+<li><a href="/qr-code-for-hospital.html" style="color: #4b5563; text-decoration: none;">病院 QRコード</a></li>
+</ul>
+</div>
+</div>
+<div style="max-width: 1200px; margin: 2rem auto 0; text-align: center; font-size: 0.85rem; color: #6b7280; border-top: 1px solid #e5e7eb; padding-top: 2rem;">&copy; 2026 QR Generator Online. All rights reserved. | <a href="/sitemap.xml" style="color: #4b5563; text-decoration: none;">Sitemap</a></div>
+</footer>
+    </div>
+
+
+    <!-- Script Injection Architecture -->
+    <script src="i18n.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
