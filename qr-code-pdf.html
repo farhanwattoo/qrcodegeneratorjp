@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code PDF - Embed QR in PDF Documents</title>
+    <meta name="description" content="Generate QR codes in PDF format. Embed in documents, print-ready QR codes, PDF library integration, and best practices.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #D32F2F 0%, #C62828 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #B71C1C; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #ffebee; padding: 20px; border-left: 4px solid #D32F2F; border-radius: 4px; margin: 20px 0; }
+        .cta-button { background: #D32F2F; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #B71C1C; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #D32F2F; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>QR Code PDF</h1>
+        <p class="subtitle">Generate QR codes in PDF format. Print-ready documents with embedded QR codes and full library support.</p>
+    </header>
+
+    <div class="section">
+        <h2>Why PDF QR Codes</h2>
+        <ul>
+            <li>📄 Perfect for documents and reports</li>
+            <li>🖨️ Print-ready format with guaranteed quality</li>
+            <li>🔐 Secure distribution and archival</li>
+            <li>📊 Professional presentation</li>
+            <li>🌍 Universal compatibility (all devices read PDF)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Python - ReportLab</h2>
+
+        <h3>Simple PDF with QR</h3>
+        <pre><code>from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import letter
+import qrcode
+from io import BytesIO
+
+# Generate QR code
+qr = qrcode.QRCode(version=1, error_correction=qrcode.constants.ERROR_CORRECT_H)
+qr.add_data('https://example.com')
+qr.make()
+
+# Convert to image
+qr_img = qr.make_image(fill_color='black', back_color='white')
+
+# Save to BytesIO
+qr_buffer = BytesIO()
+qr_img.save(qr_buffer, format='PNG')
+qr_buffer.seek(0)
+
+# Create PDF
+c = canvas.Canvas('qrcode.pdf', pagesize=letter)
+c.drawString(100, 750, 'QR Code Example')
+c.drawImage(qr_buffer, 100, 500, width=200, height=200)
+c.save()
+
+print('PDF created: qrcode.pdf')</code></pre>
+
+        <h3>Advanced PDF with Multiple QR Codes</h3>
+        <pre><code>from reportlab.pdfgen import canvas
+from reportlab.lib.pagesizes import A4
+from reportlab.lib.units import cm
+import qrcode
+
+urls = [
+    'https://example.com/1',
+    'https://example.com/2',
+    'https://example.com/3',
+]
+
+c = canvas.Canvas('qrcodes.pdf', pagesize=A4)
+y_position = 27 * cm
+
+for idx, url in enumerate(urls, 1):
+    # Generate QR
+    qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H)
+    qr.add_data(url)
+    qr.make()
+    qr_img = qr.make_image()
+    
+    # Save temporarily
+    temp_file = f'temp_qr_{idx}.png'
+    qr_img.save(temp_file)
+    
+    # Add to PDF
+    c.drawString(1 * cm, y_position, f'QR {idx}: {url}')
+    c.drawImage(temp_file, 8 * cm, y_position - 3 * cm, width=3 * cm, height=3 * cm)
+    
+    y_position -= 5 * cm
+    
+    if y_position < 2 * cm:
+        c.showPage()
+        y_position = 27 * cm
+
+c.save()
+print('Multi-QR PDF created: qrcodes.pdf')</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>PHP - TCPDF</h2>
+
+        <pre><code>require_once('includes/tcpdf_config.php');
+require_once('TCPDF/tcpdf.php');
+require_once('vendor/autoload.php');
+
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
+
+$qrCode = new QrCode('https://example.com');
+$writer = new PngWriter();
+$result = $writer->write($qrCode);
+
+$pdf = new TCPDF();
+$pdf->AddPage();
+$pdf->SetFont('helvetica', '', 12);
+$pdf->Cell(0, 10, 'QR Code Document', 0, 1);
+
+// Add QR image to PDF
+$pdf->Image($result->getPath(), 50, 50, 50, 50);
+
+$pdf->Output('qrcode.pdf', 'D');</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Node.js - pdf-lib</h2>
+
+        <pre><code>const { PDFDocument } = require('pdf-lib');
+const QRCode = require('qrcode');
+const fs = require('fs');
+
+async function createPDFWithQR() {
+  const pdfDoc = await PDFDocument.create();
+  const page = pdfDoc.addPage([500, 500]);
+  
+  // Generate QR
+  const qrDataUrl = await QRCode.toDataURL('https://example.com');
+  
+  // Embed image
+  const image = await pdfDoc.embedPng(qrDataUrl);
+  page.drawImage(image, {
+    x: 150,
+    y: 200,
+    width: 200,
+    height: 200,
+  });
+  
+  // Add text
+  page.drawText('Scan this QR code', {
+    x: 150,
+    y: 150,
+    size: 16,
+  });
+  
+  // Save PDF
+  const pdfBytes = await pdfDoc.save();
+  fs.writeFileSync('qrcode.pdf', pdfBytes);
+  console.log('PDF created!');
+}
+
+createPDFWithQR();</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Print Guidelines</h2>
+
+        <ul>
+            <li><strong>Resolution:</strong> 300 DPI minimum for print</li>
+            <li><strong>Size:</strong> Minimum 1cm × 1cm on printed page</li>
+            <li><strong>Color:</strong> Black on white only (no gradients for print)</li>
+            <li><strong>Margins:</strong> Minimum 2mm white space around QR</li>
+            <li><strong>Error Correction:</strong> Use LEVEL_H for reliability</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Use Cases</h2>
+
+        <ul>
+            <li>📑 Invoice and receipt generation</li>
+            <li>🏷️ Product labels and barcodes</li>
+            <li>📋 Certificate generation</li>
+            <li>📊 Report distribution with tracking</li>
+            <li>🎟️ Ticket and event pass generation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Create PDF QR Codes</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Generate PDF QR Codes</a>
+        
+        <div class="link-section">
+            <p><strong>Other Formats:</strong></p>
+            <a href="qr-code-png.html">PNG QR Code</a>
+            <a href="qr-code-jpg.html">JPG QR Code</a>
+            <a href="qr-code-svg.html">SVG QR Code</a>
+            <a href="high-resolution-qr-code.html">High-Resolution QR</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. PDF QR code generation.</p>
+</footer>
+
+</body>
+</html>

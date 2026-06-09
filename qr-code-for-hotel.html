@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code for Hotel - Guest Services & Contactless Operations</title>
+    <meta name="description" content="QR codes for hospitality. Guest check-in, room services, feedback, and contactless operations for hotels and resorts.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #8B4513 0%, #654321 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #654321; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #d4a574; font-weight: bold; color: white; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #f5e6d3; padding: 20px; border-left: 4px solid #8B4513; border-radius: 4px; margin: 20px 0; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
+        .feature-card { background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; }
+        .feature-card h4 { color: #654321; margin-bottom: 10px; }
+        .cta-button { background: #8B4513; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #654321; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #8B4513; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>QR Code for Hotel</h1>
+        <p class="subtitle">Hospitality solutions: guest check-in, room services, digital menus, feedback, and contactless operations.</p>
+    </header>
+
+    <div class="section">
+        <h2>Hotel QR Code Applications</h2>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h4>📋 Self Check-In</h4>
+                <p>Mobile check-in directly to room</p>
+            </div>
+            <div class="feature-card">
+                <h4>🍽️ Digital Menu</h4>
+                <p>Room service without paper menus</p>
+            </div>
+            <div class="feature-card">
+                <h4>⭐ Guest Feedback</h4>
+                <p>Collect reviews before checkout</p>
+            </div>
+            <div class="feature-card">
+                <h4>🏖️ Local Info</h4>
+                <p>Guide to attractions and services</p>
+            </div>
+            <div class="feature-card">
+                <h4>🔑 Keyless Entry</h4>
+                <p>Digital key generation</p>
+            </div>
+            <div class="feature-card">
+                <h4>💳 Contactless Payment</h4>
+                <p>Safe payment options</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Check-In QR Code Implementation</h2>
+
+        <h3>Flow</h3>
+        <ol>
+            <li>Guest receives pre-check-in QR in email/SMS</li>
+            <li>Scans QR → Mobile check-in interface</li>
+            <li>Verifies reservation details</li>
+            <li>Receives digital room key</li>
+            <li>Direct access to room</li>
+        </ol>
+
+        <h3>Sample QR URL</h3>
+        <pre><code>https://hotel.com/checkin?reservation=ABC123&guest=john.doe&token=x9k2p</code></pre>
+
+        <div class="highlight">
+            <strong>Security:</strong> Use unique tokens, short expiry times, and HTTPS only for guest information.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Digital Menu Implementation</h2>
+
+        <h3>Room Service Menu</h3>
+        <table>
+            <tr>
+                <th>QR Location</th>
+                <th>Links To</th>
+                <th>Function</th>
+            </tr>
+            <tr>
+                <td>Bedside table</td>
+                <td>Room service menu</td>
+                <td>Order breakfast, lunch, dinner</td>
+            </tr>
+            <tr>
+                <td>Mini bar fridge</td>
+                <td>Beverage menu</td>
+                <td>Restock items</td>
+            </tr>
+            <tr>
+                <td>Room info folder</td>
+                <td>Hotel services</td>
+                <td>Spa, gym, facilities</td>
+            </tr>
+            <tr>
+                <td>TV remote</td>
+                <td>Control app</td>
+                <td>Room automation</td>
+            </tr>
+        </table>
+
+        <h3>Benefits</h3>
+        <ul>
+            <li>Updated menu without reprinting</li>
+            <li>Instant inventory synchronization</li>
+            <li>Order tracking in real-time</li>
+            <li>Reduced paper waste</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Guest Feedback Collection</h2>
+
+        <h3>Post-Check-Out Survey</h3>
+        <p>Display QR on checkout screen linking to:</p>
+        <ul>
+            <li>Room cleanliness rating</li>
+            <li>Service quality feedback</li>
+            <li>Suggestion form</li>
+            <li>Future promotion signup</li>
+        </ul>
+
+        <h3>Implementation</h3>
+        <pre><code>QR linking to: https://surveys.hotel.com/feedback?reservation=ABC123
+
+Sample form fields:
+- Overall satisfaction (1-5 stars)
+- Staff friendliness (1-5 stars)
+- Room cleanliness (1-5 stars)
+- Would you return? (Yes/No)
+- Comments (optional)
+- Email for follow-up</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Local Area Information</h2>
+
+        <p>In-room QR codes linking to:</p>
+        <ul>
+            <li>📍 <strong>Map:</strong> Nearby restaurants, attractions, shopping</li>
+            <li>🚕 <strong>Transportation:</strong> Taxi numbers, ride-sharing codes</li>
+            <li>🎫 <strong>Activities:</strong> Tour bookings, event tickets</li>
+            <li>📞 <strong>Concierge:</strong> Direct contact and services</li>
+        </ul>
+
+        <div class="highlight">
+            <strong>Dynamic QR:</strong> Update content seasonally for promotions, events, and special offers.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>ROI for Hotels</h2>
+
+        <table>
+            <tr>
+                <th>Metric</th>
+                <th>Expected Impact</th>
+            </tr>
+            <tr>
+                <td>Check-in time reduction</td>
+                <td>30-50% faster</td>
+            </tr>
+            <tr>
+                <td>Room service orders (QR-based)</td>
+                <td>+25-40% increase</td>
+            </tr>
+            <tr>
+                <td>Feedback collection rate</td>
+                <td>+60-80% participation</td>
+            </tr>
+            <tr>
+                <td>Staff efficiency</td>
+                <td>+35% hours freed</td>
+            </tr>
+            <tr>
+                <td>Guest satisfaction score</td>
+                <td>+15% improvement</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Create Hotel QR Codes</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Generate Hotel QR Codes</a>
+        
+        <div class="link-section">
+            <p><strong>Related Industry Codes:</strong></p>
+            <a href="qr-code-for-events.html">QR for Events</a>
+            <a href="qr-code-for-restaurant.html">QR for Restaurant</a>
+            <a href="qr-code-for-retail.html">QR for Retail</a>
+            <a href="qr-code-for-ecommerce.html">QR for E-commerce</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. QR solutions for hospitality.</p>
+</footer>
+
+</body>
+</html>

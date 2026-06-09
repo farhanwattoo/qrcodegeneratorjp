@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How QR Codes Work - Encoding, Scanning, and Error Recovery</title>
+    <meta name="description" content="Learn how QR codes work from data encoding to camera scanning. Understand modules, finder patterns, error correction, and why good print quality matters.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Segoe UI", Arial, sans-serif; color: #203145; line-height: 1.7; background: #f5f9fd; }
+        .container { max-width: 920px; margin: 0 auto; padding: 24px; }
+        header { background: linear-gradient(135deg, #0f172a 0%, #0f766e 100%); color: #fff; padding: 52px 28px; border-radius: 22px; margin-bottom: 24px; }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.06; margin-bottom: 12px; }
+        .subtitle { max-width: 720px; color: rgba(255,255,255,0.9); }
+        .section { background: #fff; padding: 28px; margin-bottom: 18px; border-radius: 18px; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07); border: 1px solid #d9e8f4; }
+        h2 { font-size: 1.65rem; color: #143b68; margin-bottom: 14px; }
+        h3 { font-size: 1.12rem; color: #1f4c7f; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 24px; }
+        li { margin-bottom: 8px; }
+        .callout { background: #eef7ff; border-left: 4px solid #2563eb; padding: 16px 18px; border-radius: 12px; margin: 18px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 14px; }
+        .card { background: #f8fbfe; border: 1px solid #dceaf7; border-radius: 14px; padding: 16px; }
+        .card h4 { color: #174b8a; margin-bottom: 8px; }
+        .cta { display: inline-block; background: #1d4ed8; color: #fff; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-weight: 700; margin-right: 12px; margin-top: 8px; }
+        .secondary { background: #e7f0ff; color: #174b8a; }
+        .links a { color: #1d4ed8; text-decoration: none; margin-right: 18px; font-weight: 600; }
+        footer { text-align: center; color: #66768a; padding: 10px 0 22px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>How QR codes work</h1>
+        <p class="subtitle">A QR code is more than a black-and-white square. It is a structured data system designed to be found, read, corrected, and decoded quickly by cameras in messy real-world conditions.</p>
+    </header>
+
+    <div class="section">
+        <h2>The basic idea</h2>
+        <p>A QR code converts data into a pattern of dark and light modules. A camera sees the pattern, software identifies the structure, corrects small errors, and then decodes the stored content into a URL, text string, contact card, or another action.</p>
+    </div>
+
+    <div class="section">
+        <h2>Main parts of a QR code</h2>
+        <div class="grid">
+            <div class="card">
+                <h4>Finder patterns</h4>
+                <p>The three large corner squares help the scanner locate the code and understand orientation.</p>
+            </div>
+            <div class="card">
+                <h4>Alignment patterns</h4>
+                <p>These help the scanner compensate when the code is curved or viewed at an angle.</p>
+            </div>
+            <div class="card">
+                <h4>Timing patterns</h4>
+                <p>They guide the scanner through the grid so it knows where modules begin and end.</p>
+            </div>
+            <div class="card">
+                <h4>Data modules</h4>
+                <p>The smaller squares carry the encoded information plus error correction data.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>From data to QR pattern</h2>
+        <ol>
+            <li>The input is normalized into a supported data mode such as numeric, alphanumeric, byte, or Kanji.</li>
+            <li>The generator encodes the content into binary data.</li>
+            <li>Error correction data is added so the code can survive some damage or distortion.</li>
+            <li>The final bits are arranged into the QR grid using standardized placement rules.</li>
+            <li>A mask is applied to improve readability and reduce problematic visual patterns.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>What happens during scanning</h2>
+        <ol>
+            <li>The camera captures the QR image.</li>
+            <li>The software detects the finder patterns and estimates the code boundaries.</li>
+            <li>The image is corrected for skew, angle, blur, or mild distortion.</li>
+            <li>The modules are sampled and translated back into bits.</li>
+            <li>Error correction repairs some missing or damaged data.</li>
+            <li>The final content is decoded and passed to the phone or app as an action.</li>
+        </ol>
+        <div class="callout">
+            Good scan performance comes from both sides: a clean QR design and a camera app that can interpret real-world imperfections.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Why print quality matters</h2>
+        <ul>
+            <li>Low resolution blurs module edges and makes the grid ambiguous.</li>
+            <li>Poor contrast makes it hard for the camera to separate dark and light areas.</li>
+            <li>Small size reduces how many pixels the camera can use to identify each module.</li>
+            <li>Heavy logos or decorations can remove too much recoverable data.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Learn the next layer</h2>
+        <a class="cta" href="free-qr-code-generator.html">Generate QR code</a>
+        <a class="cta secondary" href="qr-code-guides.html">Open guides hub</a>
+        <div class="links" style="margin-top:18px;">
+            <a href="qr-code-error-correction.html">QR Code Error Correction</a>
+            <a href="dynamic-vs-static-qr-code.html">Dynamic vs Static</a>
+            <a href="qr-code-size.html">QR Code Size</a>
+            <a href="what-is-a-qr-code.html">What Is a QR Code</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 QR Code Generator JP. The mechanics behind faster QR scanning.</p>
+    </footer>
+</div>
+</body>
+</html>

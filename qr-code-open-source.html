@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source QR Code Generator | Libraries, Tradeoffs, and Self-Hosted Workflows</title>
+    <meta name="description" content="Explore open source QR code generation options, common libraries, tradeoffs, and when self-hosted QR workflows make sense.">
+    <link rel="canonical" href="https://qrcodegeneratorjp.com/qr-code-open-source.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f5f7fb; color: #243247; line-height: 1.7; }
+        .wrap { max-width: 960px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #384860, #1d2734); color: #fff; padding: 48px 28px; border-radius: 18px; margin: 20px 0 28px; }
+        h1 { font-size: 2.25rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.05rem; max-width: 760px; opacity: 0.92; }
+        .card { background: #fff; border-radius: 16px; padding: 28px; margin-bottom: 18px; box-shadow: 0 10px 30px rgba(22, 39, 72, 0.08); }
+        h2 { color: #1d2734; font-size: 1.7rem; margin-bottom: 14px; }
+        h3 { color: #384860; font-size: 1.15rem; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 22px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        th, td { padding: 12px; border: 1px solid #d7dfea; text-align: left; vertical-align: top; }
+        th { background: #edf1f5; color: #1d2734; }
+        .note { background: #f1f5f9; border-left: 4px solid #55657d; padding: 18px; border-radius: 10px; }
+        .button { display: inline-block; text-decoration: none; background: #f2c44c; color: #1d2734; padding: 13px 22px; border-radius: 999px; font-weight: 700; }
+        .links a { color: #1d2734; text-decoration: none; margin-right: 16px; font-weight: 600; }
+        footer { text-align: center; color: #627389; padding: 24px 0 36px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <h1>Open Source QR Code Generator</h1>
+            <p class="subtitle">Open source QR libraries are excellent building blocks for teams that want control over generation, rendering, and deployment. The real question is how much of the surrounding workflow you need to own.</p>
+        </header>
+
+        <section class="card">
+            <h2>Why teams choose open source QR tooling</h2>
+            <ul>
+                <li>Full control over generation and output</li>
+                <li>Easier local or self-hosted deployment</li>
+                <li>No dependency on a third-party UI for simple generation cases</li>
+                <li>Freedom to embed QR generation directly into existing apps and services</li>
+                <li>Lower cost for high-volume static generation workloads</li>
+            </ul>
+            <p>Open source is usually strongest when you only need the generation engine, not a whole platform for analytics, dynamic updates, permissions, and content operations.</p>
+        </section>
+
+        <section class="card">
+            <h2>What open source gives you and what it does not</h2>
+            <table>
+                <tr>
+                    <th>Capability</th>
+                    <th>Often covered by libraries</th>
+                    <th>Often still on your team</th>
+                </tr>
+                <tr>
+                    <td>Encode data into a QR matrix</td>
+                    <td>Yes</td>
+                    <td>No extra work</td>
+                </tr>
+                <tr>
+                    <td>Render PNG or SVG output</td>
+                    <td>Usually yes</td>
+                    <td>Sometimes styling and print testing</td>
+                </tr>
+                <tr>
+                    <td>Dynamic redirects</td>
+                    <td>Rarely</td>
+                    <td>You build the redirect system</td>
+                </tr>
+                <tr>
+                    <td>Analytics and scan reporting</td>
+                    <td>Rarely</td>
+                    <td>You build tracking and governance</td>
+                </tr>
+                <tr>
+                    <td>Admin tools for non-technical users</td>
+                    <td>No</td>
+                    <td>You build or buy a control layer</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>When open source is a strong fit</h2>
+            <ul>
+                <li>Static QR codes in a product, portal, or internal tool</li>
+                <li>Developer-led systems with a clear deployment pipeline</li>
+                <li>Self-hosted environments with security or network constraints</li>
+                <li>High-volume generation jobs where the destination never needs later editing</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>When it may not be enough by itself</h2>
+            <ul>
+                <li>Marketing teams need to edit destinations after print</li>
+                <li>You need role-based access, analytics, and content governance</li>
+                <li>Operations teams need a non-technical interface for batch management</li>
+                <li>You need a hosted redirect layer for dynamic codes</li>
+            </ul>
+            <div class="note">
+                <strong>Tip:</strong> Many teams use open source generation inside a broader platform. That hybrid model keeps the rendering flexible while centralizing campaign control.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Evaluation checklist</h2>
+            <ul>
+                <li>Does the library support the output formats you need?</li>
+                <li>Can it handle error correction and sizing cleanly?</li>
+                <li>Is maintenance active enough for your stack and risk profile?</li>
+                <li>Will you need custom logo or styling support?</li>
+                <li>Who owns redirects, analytics, and operations after generation?</li>
+            </ul>
+        </section>
+
+        <section class="card links">
+            <h2>Choose your build path</h2>
+            <p>Open source works best when you know which parts of the QR workflow you want to own and which parts are better provided by an API or managed tool.</p>
+            <a class="button" href="qr-code-library.html">Compare QR code libraries</a>
+            <p style="margin-top: 18px;"><strong>Related guides:</strong></p>
+            <a href="qr-code-library.html">QR Code Library</a>
+            <a href="qr-code-api.html">QR Code API</a>
+            <a href="qr-code-integration.html">QR Code Integration</a>
+            <a href="dynamic-qr-code-generator.html">Dynamic QR Code Generator</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 QR Code Generator JP. Open source QR generation guidance for developers.</p>
+        </footer>
+    </div>
+</body>
+</html>

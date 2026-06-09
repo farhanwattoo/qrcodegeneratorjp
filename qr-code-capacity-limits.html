@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Capacity Limits - How Much Data Fits in a QR Code?</title>
+    <meta name="description" content="Learn the practical capacity limits of QR codes, including how payload type, version, and error correction level affect how much data you can store.">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "Segoe UI", Arial, sans-serif; color: #203145; line-height: 1.7; background: #f5f9fd; }
+        .container { max-width: 920px; margin: 0 auto; padding: 24px; }
+        header { background: linear-gradient(135deg, #4338ca 0%, #1d4ed8 100%); color: #fff; padding: 52px 28px; border-radius: 22px; margin-bottom: 24px; }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.06; margin-bottom: 12px; }
+        .subtitle { max-width: 760px; color: rgba(255, 255, 255, 0.92); }
+        .section { background: #fff; padding: 28px; margin-bottom: 18px; border-radius: 18px; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07); border: 1px solid #d9e8f4; }
+        h2 { font-size: 1.65rem; color: #312e81; margin-bottom: 14px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 24px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+        th, td { border: 1px solid #dceaf7; padding: 12px; text-align: left; vertical-align: top; }
+        th { background: #eef2ff; color: #312e81; }
+        .callout { background: #eef2ff; border-left: 4px solid #4338ca; padding: 16px 18px; border-radius: 12px; margin: 18px 0; }
+        .cta { display: inline-block; background: #4338ca; color: #fff; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-weight: 700; margin-right: 12px; margin-top: 8px; }
+        .secondary { background: #e0e7ff; color: #312e81; }
+        .links a { color: #4338ca; text-decoration: none; margin-right: 18px; font-weight: 600; }
+        footer { text-align: center; color: #66768a; padding: 10px 0 22px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>QR code capacity limits</h1>
+        <p class="subtitle">The amount of data a QR code can hold depends on the content type, the version of the code, and the level of error correction you choose. Bigger payloads usually mean denser patterns and harder real-world scanning.</p>
+    </header>
+
+    <div class="section">
+        <h2>Theoretical maximums</h2>
+        <table>
+            <tr>
+                <th>Data type</th>
+                <th>Maximum capacity</th>
+            </tr>
+            <tr>
+                <td>Numeric</td>
+                <td>7,089 characters</td>
+            </tr>
+            <tr>
+                <td>Alphanumeric</td>
+                <td>4,296 characters</td>
+            </tr>
+            <tr>
+                <td>Binary / byte mode</td>
+                <td>2,953 bytes</td>
+            </tr>
+            <tr>
+                <td>Kanji</td>
+                <td>1,817 characters</td>
+            </tr>
+        </table>
+        <div class="callout">These are ideal maximums, not practical targets. In production, you usually want far less data so the QR code stays easier to print and scan.</div>
+    </div>
+
+    <div class="section">
+        <h2>What affects usable capacity</h2>
+        <ul>
+            <li>Error correction level: more recovery means less room for payload</li>
+            <li>Encoding mode: URLs and plain text behave differently than raw bytes</li>
+            <li>Print size and viewing distance: denser codes need more physical space</li>
+            <li>Design customization: logos and styling shrink your safety margin</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Practical advice</h2>
+        <ol>
+            <li>Use a short URL instead of stuffing a large payload directly into the code.</li>
+            <li>Switch to a hosted file or landing page rather than embedding too much data.</li>
+            <li>Reserve higher error correction for rough environments or branded designs.</li>
+            <li>Test real print size, not just the digital preview.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Why this matters</h2>
+        <p>Capacity decisions change scan reliability. A code that technically fits the data can still become too dense for packaging, badges, or small labels. When in doubt, simplify the payload and move complexity to the destination page.</p>
+    </div>
+
+    <div class="section">
+        <h2>Learn the fundamentals</h2>
+        <a class="cta" href="how-qr-codes-work.html">How QR codes work</a>
+        <a class="cta secondary" href="qr-code-error-correction.html">Error correction guide</a>
+        <div class="links" style="margin-top:18px;">
+            <a href="how-qr-codes-work.html">How QR Codes Work</a>
+            <a href="qr-code-error-correction.html">QR Code Error Correction</a>
+            <a href="qr-code-size.html">QR Code Size</a>
+            <a href="dynamic-vs-static-qr-code.html">Dynamic vs Static QR Code</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 QR Code Generator JP. Practical QR capacity guidance for real-world deployments.</p>
+    </footer>
+</div>
+</body>
+</html>

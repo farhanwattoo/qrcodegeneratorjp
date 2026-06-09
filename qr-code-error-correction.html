@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Error Correction - L, M, Q, H Explained</title>
+    <meta name="description" content="Understand QR code error correction levels L, M, Q, and H. Learn how they affect recovery, density, customization, and print reliability.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Segoe UI", Arial, sans-serif; color: #203145; line-height: 1.7; background: #f5f9fd; }
+        .container { max-width: 920px; margin: 0 auto; padding: 24px; }
+        header { background: linear-gradient(135deg, #0f766e 0%, #1d4ed8 100%); color: #fff; padding: 52px 28px; border-radius: 22px; margin-bottom: 24px; }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.06; margin-bottom: 12px; }
+        .subtitle { max-width: 720px; color: rgba(255,255,255,0.9); }
+        .section { background: #fff; padding: 28px; margin-bottom: 18px; border-radius: 18px; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07); border: 1px solid #d9e8f4; }
+        h2 { font-size: 1.65rem; color: #143b68; margin-bottom: 14px; }
+        h3 { font-size: 1.12rem; color: #1f4c7f; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 24px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+        th, td { border: 1px solid #dceaf7; padding: 12px; text-align: left; vertical-align: top; }
+        th { background: #eef7ff; color: #174b8a; }
+        .callout { background: #eef7ff; border-left: 4px solid #2563eb; padding: 16px 18px; border-radius: 12px; margin: 18px 0; }
+        .cta { display: inline-block; background: #1d4ed8; color: #fff; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-weight: 700; margin-right: 12px; margin-top: 8px; }
+        .secondary { background: #e7f0ff; color: #174b8a; }
+        .links a { color: #1d4ed8; text-decoration: none; margin-right: 18px; font-weight: 600; }
+        footer { text-align: center; color: #66768a; padding: 10px 0 22px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>QR code error correction</h1>
+        <p class="subtitle">Error correction is what allows a QR code to survive some dirt, print damage, distortion, or visual customization and still scan successfully.</p>
+    </header>
+
+    <div class="section">
+        <h2>What error correction means</h2>
+        <p>A QR code includes recovery data in addition to the main payload. If part of the code is damaged or hidden, the scanner may still reconstruct the original content. More error correction means more recovery potential, but it also increases data density.</p>
+    </div>
+
+    <div class="section">
+        <h2>QR error correction levels</h2>
+        <table>
+            <tr>
+                <th>Level</th>
+                <th>Approximate recovery</th>
+                <th>Typical use</th>
+            </tr>
+            <tr>
+                <td>L</td>
+                <td>About 7%</td>
+                <td>Very clean environments and simple codes</td>
+            </tr>
+            <tr>
+                <td>M</td>
+                <td>About 15%</td>
+                <td>General-purpose everyday QR generation</td>
+            </tr>
+            <tr>
+                <td>Q</td>
+                <td>About 25%</td>
+                <td>More demanding print or light customization</td>
+            </tr>
+            <tr>
+                <td>H</td>
+                <td>About 30%</td>
+                <td>Logo overlays and harsher real-world conditions</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>How to choose the right level</h2>
+        <ul>
+            <li><strong>M</strong> is a solid default for most normal QR use.</li>
+            <li><strong>Q</strong> is useful when you expect mild wear, lower print quality, or decorative styling.</li>
+            <li><strong>H</strong> is common when placing a logo in the center or using QR codes in rougher environments.</li>
+            <li><strong>L</strong> can work for very simple, clean digital usage where density must stay low.</li>
+        </ul>
+        <div class="callout">
+            Higher is not always better. More correction data means a denser code, which can be harder to scan if the final size is too small.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Error correction and custom design</h2>
+        <p>If you add a logo, rounded modules, gradients, or other visual styling, error correction becomes more important because some usable data area may be reduced. But styling should still be conservative. Error correction helps, it does not excuse poor contrast or bad sizing.</p>
+    </div>
+
+    <div class="section">
+        <h2>Best practices</h2>
+        <ul>
+            <li>Use M for standard website and contact QR codes.</li>
+            <li>Use Q or H when adding logos or custom visual treatment.</li>
+            <li>Increase output size if the QR becomes more data-dense.</li>
+            <li>Always test the final exported file, not just the raw generator preview.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Generate a better QR code</h2>
+        <a class="cta" href="free-qr-code-generator.html">Generate QR code</a>
+        <a class="cta secondary" href="qr-code-guides.html">Open guides hub</a>
+        <div class="links" style="margin-top:18px;">
+            <a href="how-qr-codes-work.html">How QR Codes Work</a>
+            <a href="logo-qr-code.html">Logo QR Code</a>
+            <a href="qr-code-with-image.html">QR Code With Image</a>
+            <a href="qr-code-size.html">QR Code Size</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 QR Code Generator JP. Smarter error-correction choices for stronger QR output.</p>
+    </footer>
+</div>
+</body>
+</html>

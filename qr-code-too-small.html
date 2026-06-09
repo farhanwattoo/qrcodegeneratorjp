@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Too Small - Minimum Size, Scan Distance, and Fixes</title>
+    <meta name="description" content="Find out when a QR code is too small to scan reliably. Learn minimum size guidance, scan distance rules, and how to fix undersized QR designs.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Segoe UI", Arial, sans-serif; color: #203145; line-height: 1.7; background: #f5f9fd; }
+        .container { max-width: 920px; margin: 0 auto; padding: 24px; }
+        header { background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%); color: #fff; padding: 52px 28px; border-radius: 22px; margin-bottom: 24px; }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.06; margin-bottom: 12px; }
+        .subtitle { max-width: 720px; color: rgba(255,255,255,0.9); }
+        .section { background: #fff; padding: 28px; margin-bottom: 18px; border-radius: 18px; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07); border: 1px solid #d9e8f4; }
+        h2 { font-size: 1.65rem; color: #143b68; margin-bottom: 14px; }
+        h3 { font-size: 1.12rem; color: #1f4c7f; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 24px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+        th, td { border: 1px solid #dceaf7; padding: 12px; text-align: left; vertical-align: top; }
+        th { background: #eef7ff; color: #174b8a; }
+        .callout { background: #eef7ff; border-left: 4px solid #2563eb; padding: 16px 18px; border-radius: 12px; margin: 18px 0; }
+        .cta { display: inline-block; background: #1d4ed8; color: #fff; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-weight: 700; margin-right: 12px; margin-top: 8px; }
+        .secondary { background: #e7f0ff; color: #174b8a; }
+        .links a { color: #1d4ed8; text-decoration: none; margin-right: 18px; font-weight: 600; }
+        footer { text-align: center; color: #66768a; padding: 10px 0 22px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>QR code too small</h1>
+        <p class="subtitle">If your QR code is too small, even a perfectly generated file can fail. Size needs to match both data density and the distance from which people will scan.</p>
+    </header>
+
+    <div class="section">
+        <h2>Why size matters so much</h2>
+        <p>Scanners need enough camera pixels to distinguish individual modules. As the QR gets smaller, the modules become harder to resolve, especially on older phones, in low light, or when the code is printed on textured material.</p>
+        <div class="callout">
+            More data means more modules, which often means you need a larger final QR code for the same reliability.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Practical size guidance</h2>
+        <table>
+            <tr>
+                <th>Use case</th>
+                <th>Suggested minimum</th>
+                <th>Notes</th>
+            </tr>
+            <tr>
+                <td>Business card or product tag</td>
+                <td>At least 20-25 mm</td>
+                <td>Use clean contrast and short data payloads.</td>
+            </tr>
+            <tr>
+                <td>Flyer or menu</td>
+                <td>25-35 mm</td>
+                <td>Good for normal hand-held viewing.</td>
+            </tr>
+            <tr>
+                <td>Poster or signage</td>
+                <td>40 mm and up</td>
+                <td>Increase size for longer viewing distance.</td>
+            </tr>
+            <tr>
+                <td>Window, booth, or large-format display</td>
+                <td>Based on distance</td>
+                <td>Test from the actual expected scan position.</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Symptoms of an undersized QR code</h2>
+        <ul>
+            <li>Some phones scan it only when extremely close.</li>
+            <li>It works on one device but fails on others.</li>
+            <li>The camera hunts for focus without showing a scan prompt.</li>
+            <li>The code scans on-screen but fails after print.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>How to fix a QR code that is too small</h2>
+        <ol>
+            <li>Increase the physical size of the code.</li>
+            <li>Reduce unnecessary data or switch to a shorter link.</li>
+            <li>Use a higher-resolution or vector export.</li>
+            <li>Keep the quiet zone clear around all four sides.</li>
+            <li>Retest from the real user distance, not just from your desk.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>Make the next QR code easier to scan</h2>
+        <a class="cta" href="free-qr-code-generator.html">Generate QR code</a>
+        <a class="cta secondary" href="qr-code-size.html">QR size guide</a>
+        <div class="links" style="margin-top:18px;">
+            <a href="qr-code-blurry.html">QR Code Blurry</a>
+            <a href="high-resolution-qr-code.html">High-Resolution QR</a>
+            <a href="qr-code-300dpi.html">QR Code 300 DPI</a>
+            <a href="qr-code-not-working.html">QR Code Not Working</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 QR Code Generator JP. Better sizing decisions for real-world QR scanning.</p>
+    </footer>
+</div>
+</body>
+</html>

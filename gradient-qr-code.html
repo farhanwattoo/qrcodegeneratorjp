@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gradient QR Code - Colorful & Modern Design</title>
+    <meta name="description" content="Create modern gradient QR codes with vibrant colors. Design principles, color combinations, and scanability best practices.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #FF6B9D 0%, #FFC93C 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; text-shadow: 0 2px 4px rgba(0,0,0,0.2); }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #FF6B9D; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #fff3e0; padding: 20px; border-left: 4px solid #FF6B9D; border-radius: 4px; margin: 20px 0; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
+        .feature-card { background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; }
+        .feature-card h4 { color: #FF6B9D; margin-bottom: 10px; }
+        .cta-button { background: linear-gradient(135deg, #FF6B9D 0%, #FFC93C 100%); color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: transform 0.3s; }
+        .cta-button:hover { transform: scale(1.05); }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #FF6B9D; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Gradient QR Code</h1>
+        <p class="subtitle">Modern gradient colors for eye-catching QR codes. Contemporary design with full scanability maintained.</p>
+    </header>
+
+    <div class="section">
+        <h2>Why Gradient QR Codes</h2>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h4>✨ Modern Look</h4>
+                <p>Contemporary gradient trends in design</p>
+            </div>
+            <div class="feature-card">
+                <h4>🎯 Eye-Catching</h4>
+                <p>Stand out among plain black QR codes</p>
+            </div>
+            <div class="feature-card">
+                <h4>🎨 Brand Aligned</h4>
+                <p>Match your brand color palette</p>
+            </div>
+            <div class="feature-card">
+                <h4>✅ Still Scannable</h4>
+                <p>Works with all modern QR readers</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Popular Gradient Combinations</h2>
+
+        <ul>
+            <li><strong>Purple to Pink:</strong> #8B5CF6 to #EC4899 - Modern, trendy</li>
+            <li><strong>Blue to Cyan:</strong> #3B82F6 to #06B6D4 - Professional, tech</li>
+            <li><strong>Orange to Pink:</strong> #FF6B6B to #FFE66D - Vibrant, energetic</li>
+            <li><strong>Green to Teal:</strong> #10B981 to #06B6D4 - Fresh, natural</li>
+            <li><strong>Red to Orange:</strong> #EF4444 to #FB923C - Warm, inviting</li>
+            <li><strong>Purple to Blue:</strong> #8B5CF6 to #3B82F6 - Cool, sophisticated</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Implementation</h2>
+
+        <h3>Python with Pillow</h3>
+        <pre><code>from PIL import Image, ImageDraw
+import qrcode
+
+# Generate QR
+qr = qrcode.QRCode(error_correction=qrcode.constants.ERROR_CORRECT_H)
+qr.add_data('https://example.com')
+qr.make()
+
+# Create image with gradient
+img = qr.make_image(fill_color='black', back_color='white').convert('RGB')
+
+# Apply gradient colors
+pixels = img.load()
+width, height = img.size
+
+# Gradient from purple to pink
+for y in range(height):
+    # Calculate color gradient
+    ratio = y / height
+    r = int(139 + (236 - 139) * ratio)  # 8B to EC
+    g = int(92 + (72 - 92) * ratio)     # 5C to 48
+    b = int(246 + (153 - 246) * ratio)  # F6 to 99
+    
+    for x in range(width):
+        if pixels[x, y] == (0, 0, 0):  # Black QR module
+            pixels[x, y] = (r, g, b)
+
+img.save('gradient_qr.png')</code></pre>
+
+        <h3>Web/Canvas Approach</h3>
+        <pre><code>&lt;canvas id="qrCanvas" width="300" height="300"&gt;&lt;/canvas&gt;
+
+&lt;script&gt;
+const canvas = document.getElementById('qrCanvas');
+const ctx = canvas.getContext('2d');
+
+// Create gradient
+const gradient = ctx.createLinearGradient(0, 0, canvas.width, canvas.height);
+gradient.addColorStop(0, '#8B5CF6');    // Purple
+gradient.addColorStop(1, '#EC4899');    // Pink
+
+// Generate and apply gradient to QR (requires QR library)
+const qr = qrcode.make_image('https://example.com');
+// Apply gradient colors to dark pixels
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Color Psychology</h2>
+
+        <h3>Red/Orange Gradients</h3>
+        <ul>
+            <li>Conveys: Energy, urgency, passion</li>
+            <li>Best for: Sales, promotions, actions</li>
+        </ul>
+
+        <h3>Purple/Pink Gradients</h3>
+        <ul>
+            <li>Conveys: Creativity, luxury, trend</li>
+            <li>Best for: Fashion, design, premium services</li>
+        </ul>
+
+        <h3>Blue/Cyan Gradients</h3>
+        <ul>
+            <li>Conveys: Trust, technology, professional</li>
+            <li>Best for: B2B, tech, banking</li>
+        </ul>
+
+        <h3>Green/Teal Gradients</h3>
+        <ul>
+            <li>Conveys: Growth, nature, sustainability</li>
+            <li>Best for: Health, eco-friendly, apps</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Design Best Practices</h2>
+
+        <ul>
+            <li><strong>Contrast Matters:</strong> Gradient must maintain high contrast with light background</li>
+            <li><strong>Avoid Gradients in Quietzone:</strong> Keep white border around QR pure white</li>
+            <li><strong>Test Scannability:</strong> Always test on multiple QR readers</li>
+            <li><strong>Consider Printing:</strong> Some gradients don't print well; test first</li>
+            <li><strong>Smooth Transitions:</strong> Avoid harsh color changes that break QR patterns</li>
+            <li><strong>Error Correction:</strong> Use LEVEL_H (30%) for gradient codes</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>When to Use Gradient QR</h2>
+
+        <ul>
+            <li>✅ Social media marketing (Instagram, Pinterest, TikTok)</li>
+            <li>✅ Modern brand communications</li>
+            <li>✅ Digital marketing materials</li>
+            <li>✅ Contemporary product packaging</li>
+            <li>✅ Web pages and digital platforms</li>
+            <li>❌ Government/official documents (use black)</li>
+            <li>❌ High-security applications (use black)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Create Gradient QR Codes</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Generate Gradient QR</a>
+        
+        <div class="link-section">
+            <p><strong>Related Design Codes:</strong></p>
+            <a href="rounded-qr-code.html">Rounded QR Code</a>
+            <a href="qr-code-with-image.html">QR with Logo</a>
+            <a href="transparent-qr-code.html">Transparent QR Code</a>
+            <a href="custom-qr-code.html">Custom QR Code</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. Modern gradient QR codes.</p>
+</footer>
+
+</body>
+</html>

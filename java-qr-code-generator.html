@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java QR Code Generator - ZXing & Spring Boot Integration</title>
+    <meta name="description" content="Generate QR codes with Java. ZXing library, Spring Boot integration, Maven setup. Complete code examples and tutorials.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #E34C26 0%, #C1272D 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #C1272D; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #ffebee; padding: 20px; border-left: 4px solid #C1272D; border-radius: 4px; margin: 20px 0; }
+        .cta-button { background: #C1272D; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #A01D26; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #C1272D; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Java QR Code Generator</h1>
+        <p class="subtitle">Generate QR codes with Java. ZXing library, Spring Boot integration, enterprise-grade reliability.</p>
+    </header>
+
+    <div class="section">
+        <h2>Java QR Code Libraries</h2>
+        <ul>
+            <li><strong>ZXing (Zebra Crossing):</strong> Industry standard, Google-backed, feature-rich</li>
+            <li><strong>QRGen:</strong> Simple wrapper around ZXing</li>
+            <li><strong>javabarcode:</strong> Lightweight alternative</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Maven Dependency</h2>
+
+        <h3>pom.xml Setup</h3>
+        <pre><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.google.zxing&lt;/groupId&gt;
+    &lt;artifactId&gt;core&lt;/artifactId&gt;
+    &lt;version&gt;3.5.1&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;com.google.zxing&lt;/groupId&gt;
+    &lt;artifactId&gt;javase&lt;/artifactId&gt;
+    &lt;version&gt;3.5.1&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Basic QR Code Generation</h2>
+
+        <h3>Simple Example</h3>
+        <pre><code>import com.google.zxing.BarcodeFormat;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
+
+public class QRCodeGenerator {
+    public static void generateQRCode(String text, String filePath) 
+            throws Exception {
+        
+        QRCodeWriter writer = new QRCodeWriter();
+        BitMatrix bitMatrix = writer.encode(text, BarcodeFormat.QR_CODE, 512, 512);
+        
+        MatrixToImageWriter.writeToPath(bitMatrix, "PNG", 
+            Paths.get(filePath));
+        
+        System.out.println("QR Code generated: " + filePath);
+    }
+    
+    public static void main(String[] args) throws Exception {
+        generateQRCode("https://example.com", "qrcode.png");
+    }
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Advanced Configuration</h3>
+
+        <h3>Custom Size & Error Correction</h3>
+        <pre><code>import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+
+Map&lt;EncodeHintType, Object&gt; hints = new HashMap&lt;&gt;();
+hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+hints.put(EncodeHintType.MARGIN, 2);
+hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
+
+QRCodeWriter writer = new QRCodeWriter();
+BitMatrix bitMatrix = writer.encode(
+    "https://example.com", 
+    BarcodeFormat.QR_CODE, 
+    300,  // width
+    300,  // height
+    hints
+);</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Spring Boot Integration</h2>
+
+        <h3>REST Controller</h3>
+        <pre><code>import org.springframework.web.bind.annotation.*;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import java.io.ByteArrayOutputStream;
+
+@RestController
+@RequestMapping("/api/qr")
+public class QRCodeController {
+    
+    @GetMapping("/generate")
+    public ResponseEntity&lt;byte[]&gt; generateQR(
+            @RequestParam String data,
+            @RequestParam(defaultValue = "300") int size) 
+            throws Exception {
+        
+        QRCodeWriter writer = new QRCodeWriter();
+        BitMatrix bitMatrix = writer.encode(data, BarcodeFormat.QR_CODE, size, size);
+        
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        MatrixToImageWriter.writeToStream(bitMatrix, "PNG", baos);
+        
+        return ResponseEntity
+            .ok()
+            .header("Content-Type", "image/png")
+            .body(baos.toByteArray());
+    }
+}</code></pre>
+
+        <h3>Service Layer</h3>
+        <pre><code>@Service
+public class QRCodeService {
+    
+    public byte[] generateQRCode(String data, int size) throws Exception {
+        Map&lt;EncodeHintType, Object&gt; hints = new HashMap&lt;&gt;();
+        hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        
+        QRCodeWriter writer = new QRCodeWriter();
+        BitMatrix bitMatrix = writer.encode(data, BarcodeFormat.QR_CODE, size, size, hints);
+        
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        MatrixToImageWriter.writeToStream(bitMatrix, "PNG", baos);
+        
+        return baos.toByteArray();
+    }
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Batch Generation</h2>
+
+        <pre><code>public class BatchQRGenerator {
+    
+    public static void generateBatch(List&lt;String&gt; urls, String outputDir) 
+            throws Exception {
+        
+        QRCodeWriter writer = new QRCodeWriter();
+        int index = 1;
+        
+        for (String url : urls) {
+            BitMatrix bitMatrix = writer.encode(url, BarcodeFormat.QR_CODE, 300, 300);
+            String filename = outputDir + "/qrcode_" + index + ".png";
+            MatrixToImageWriter.writeToPath(bitMatrix, "PNG", Paths.get(filename));
+            index++;
+        }
+        
+        System.out.println("Generated " + urls.size() + " QR codes");
+    }
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Reading QR Codes</h2>
+
+        <pre><code>import com.google.zxing.BinaryBitmap;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.qrcode.QRCodeReader;
+
+public class QRCodeReader {
+    
+    public static String readQRCode(String imagePath) throws Exception {
+        BufferedImage image = ImageIO.read(new File(imagePath));
+        LuminanceSource source = new BufferedImageLuminanceSource(image);
+        BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+        
+        Result result = new QRCodeReader().decode(bitmap);
+        return result.getText();
+    }
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Error Correction Levels</h2>
+
+        <pre><code>ErrorCorrectionLevel.L  // ~7% recovery
+ErrorCorrectionLevel.M  // ~15% recovery
+ErrorCorrectionLevel.Q  // ~25% recovery
+ErrorCorrectionLevel.H  // ~30% recovery (recommended for print)</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Best Practices</h2>
+
+        <ul>
+            <li><strong>Use ERROR_CORRECTION_LEVEL_H</strong> for printed codes</li>
+            <li><strong>Cache generated codes</strong> for performance</li>
+            <li><strong>Set proper character encoding</strong> (UTF-8 recommended)</li>
+            <li><strong>Handle exceptions gracefully</strong></li>
+            <li><strong>Test with multiple readers</strong> on different devices</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Generate Your QR Codes</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Create QR Codes Now</a>
+        
+        <div class="link-section">
+            <p><strong>Related Resources:</strong></p>
+            <a href="python-qr-code-generator.html">Python QR Code</a>
+            <a href="php-qr-code-generator.html">PHP QR Code</a>
+            <a href="nodejs-qr-code.html">Node.js QR Code</a>
+            <a href="qr-code-api.html">QR Code API</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. Enterprise Java QR code generation.</p>
+</footer>
+
+</body>
+</html>

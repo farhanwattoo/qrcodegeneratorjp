@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Blurry - Why It Happens and How to Fix It</title>
+    <meta name="description" content="Fix a blurry QR code by improving export quality, sizing, print setup, and file format choices. Learn the common causes of soft or unreadable QR edges.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Segoe UI", Arial, sans-serif; color: #203145; line-height: 1.7; background: #f5f9fd; }
+        .container { max-width: 920px; margin: 0 auto; padding: 24px; }
+        header { background: linear-gradient(135deg, #9a3412 0%, #1d4ed8 100%); color: #fff; padding: 52px 28px; border-radius: 22px; margin-bottom: 24px; }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.06; margin-bottom: 12px; }
+        .subtitle { max-width: 720px; color: rgba(255,255,255,0.9); }
+        .section { background: #fff; padding: 28px; margin-bottom: 18px; border-radius: 18px; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07); border: 1px solid #d9e8f4; }
+        h2 { font-size: 1.65rem; color: #143b68; margin-bottom: 14px; }
+        h3 { font-size: 1.12rem; color: #1f4c7f; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 24px; }
+        li { margin-bottom: 8px; }
+        .callout { background: #eef7ff; border-left: 4px solid #2563eb; padding: 16px 18px; border-radius: 12px; margin: 18px 0; }
+        .cta { display: inline-block; background: #1d4ed8; color: #fff; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-weight: 700; margin-right: 12px; margin-top: 8px; }
+        .secondary { background: #e7f0ff; color: #174b8a; }
+        .links a { color: #1d4ed8; text-decoration: none; margin-right: 18px; font-weight: 600; }
+        footer { text-align: center; color: #66768a; padding: 10px 0 22px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>QR code blurry</h1>
+        <p class="subtitle">A blurry QR code usually fails because the camera cannot separate one module from the next. The fix is normally a better file, a better export, a larger size, or cleaner print production.</p>
+    </header>
+
+    <div class="section">
+        <h2>Why QR codes get blurry</h2>
+        <ul>
+            <li>The QR image was exported too small and then scaled up later.</li>
+            <li>A screenshot was used instead of the original source file.</li>
+            <li>Heavy JPG compression softened the module edges.</li>
+            <li>The print process introduced dot gain, smearing, or low-resolution output.</li>
+            <li>The QR is displayed on a reflective or low-quality screen.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>How to fix a blurry QR code</h2>
+        <ol>
+            <li>Regenerate the code from the source instead of enlarging an old file.</li>
+            <li>Use PNG at higher resolution or SVG/EPS for scalable print workflows.</li>
+            <li>Increase the final physical size if the code contains a lot of data.</li>
+            <li>Make sure the print vendor is not downsampling the file.</li>
+            <li>Retest the regenerated QR on multiple phones before release.</li>
+        </ol>
+        <div class="callout">
+            A QR code should look sharp at the module edge level. If the edges look soft to your eyes, scan reliability is already at risk.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Best file formats to avoid blur</h2>
+        <ul>
+            <li><strong>SVG:</strong> best for scalable, crisp print and design handoff.</li>
+            <li><strong>EPS:</strong> useful in print and prepress workflows.</li>
+            <li><strong>High-resolution PNG:</strong> solid for digital and many print cases.</li>
+            <li><strong>JPG:</strong> acceptable for some uses, but usually the weakest choice for edge sharpness.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Prevent blur before launch</h2>
+        <ul>
+            <li>Choose the correct export size at the start.</li>
+            <li>Do not stretch a small QR image in Canva, slides, or page layout tools.</li>
+            <li>Use 300 DPI or vector formats for print output.</li>
+            <li>Test printed samples, not just the on-screen design file.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Regenerate a sharper QR code</h2>
+        <a class="cta" href="free-qr-code-generator.html">Generate QR code</a>
+        <a class="cta secondary" href="high-resolution-qr-code.html">High-resolution guide</a>
+        <div class="links" style="margin-top:18px;">
+            <a href="qr-code-300dpi.html">QR Code 300 DPI</a>
+            <a href="qr-code-svg.html">QR Code SVG</a>
+            <a href="qr-code-too-small.html">QR Code Too Small</a>
+            <a href="qr-code-not-working.html">QR Code Not Working</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 QR Code Generator JP. Sharper QR output for better scan success.</p>
+    </footer>
+</div>
+</body>
+</html>

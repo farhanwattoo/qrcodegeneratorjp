@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location QR Code Generator - GPS & Map QR Codes</title>
+    <meta name="description" content="Create location QR codes with GPS coordinates. Users scan to open maps and directions instantly. Perfect for events, real estate, and businesses.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #4285F4 0%, #1F9E7D 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #4285F4; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        .highlight { background: #e6f2ff; padding: 20px; border-left: 4px solid #4285F4; border-radius: 4px; margin: 20px 0; }
+        .features { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
+        .feature-card { background: #e6f2ff; padding: 20px; border-radius: 8px; border: 1px solid #b3d9ff; }
+        .feature-card h4 { color: #4285F4; margin-bottom: 10px; }
+        .cta-button { background: #4285F4; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #357ae8; }
+        .use-cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 15px 0; }
+        .use-case-item { padding: 15px; background: #f8f9fa; border-radius: 6px; border-left: 3px solid #4285F4; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #4285F4; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Location QR Code Generator</h1>
+        <p class="subtitle">Create GPS & map QR codes. Users scan to open directions instantly.</p>
+    </header>
+
+    <div class="section">
+        <h2>What is a Location QR Code?</h2>
+        <p>A <strong>location QR code</strong> encodes GPS coordinates or an address. When scanned, it opens Google Maps, Apple Maps, or the user's default mapping app with your location pre-populated. Perfect for directing people to physical locations.</p>
+        
+        <p>Perfect for:</p>
+        <ul>
+            <li>Event venues and directions</li>
+            <li>Real estate open houses</li>
+            <li>Restaurant and retail locations</li>
+            <li>Parking lot guidance</li>
+            <li>Scavenger hunts and tours</li>
+            <li>Delivery addresses</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Why Location QR Codes Work</h2>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h4>🗺️ Instant Navigation</h4>
+                <p>Users get directions to you in 1 tap. No address typing.</p>
+            </div>
+            <div class="feature-card">
+                <h4>📍 Foot Traffic</h4>
+                <p>Drive customers to your physical location directly.</p>
+            </div>
+            <div class="feature-card">
+                <h4>🌍 Offline Friendly</h4>
+                <p>Works even without internet (pre-downloaded maps).</p>
+            </div>
+            <div class="feature-card">
+                <h4>✅ Built-In Verification</h4>
+                <p>Maps shows your location visually for confidence.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>How to Create a Location QR Code</h2>
+        
+        <h3>Method 1: Address</h3>
+        <ol>
+            <li>Enter street address (e.g., "123 Main St, Tokyo, Japan")</li>
+            <li>We'll geocode to GPS coordinates</li>
+            <li>Customize and generate</li>
+        </ol>
+
+        <h3>Method 2: GPS Coordinates</h3>
+        <ol>
+            <li>Enter latitude & longitude (e.g., 35.6762, 139.6503)</li>
+            <li>Customize mapping service (Google, Apple, etc.)</li>
+            <li>Generate your QR code</li>
+        </ol>
+
+        <div class="highlight">
+            <strong>Finding Coordinates:</strong> Go to Google Maps, right-click location → Get coordinates. Or use GPS.google.com.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Real-World Use Cases</h2>
+        
+        <div class="use-cases">
+            <div class="use-case-item">
+                <strong>🎪 Events</strong>
+                Flyers link to event venue location with parking info.
+            </div>
+            <div class="use-case-item">
+                <strong>🏠 Real Estate</strong>
+                Open house signs link to property location + street view.
+            </div>
+            <div class="use-case-item">
+                <strong>🍕 Food Service</strong>
+                Menu QRs show restaurant location for first-time visitors.
+            </div>
+            <div class="use-case-item">
+                <strong>🎁 Retail</strong>
+                Store flyers include location QR for "find us" navigation.
+            </div>
+            <div class="use-case-item">
+                <strong>🗺️ Scavenger Hunt</strong>
+                Each clue QR code reveals next location on map.
+            </div>
+            <div class="use-case-item">
+                <strong>🚚 Delivery</strong>
+                Driver app opens location QR to confirm delivery address.
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Best Practices for Location QR Codes</h2>
+        
+        <h3>Setup & Accuracy</h3>
+        <ul>
+            <li><strong>Verify coordinates:</strong> Test on Google Maps before printing</li>
+            <li><strong>Use street-level precision:</strong> Accurate to building entrance</li>
+            <li><strong>Include parking info:</strong> Add on nearby signage</li>
+            <li><strong>Add phone number:</strong> Backup if GPS fails</li>
+        </ul>
+
+        <h3>Design & Placement</h3>
+        <ul>
+            <li><strong>Include address text:</strong> Backup for manual entry</li>
+            <li><strong>Add "Find Us" CTA:</strong> Clear call to action</li>
+            <li><strong>Map icon:</strong> Help users recognize the QR type</li>
+            <li><strong>High contrast:</strong> Ensure scanability</li>
+        </ul>
+
+        <h3>Marketing Integration</h3>
+        <ul>
+            <li><strong>Local SEO:</strong> Link QR codes to Google My Business</li>
+            <li><strong>Foot traffic tracking:</strong> Use location analytics</li>
+            <li><strong>Combined with other QR types:</strong> Location + phone number works great</li>
+            <li><strong>Event promotion:</strong> Location QR codes drive attendance</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Troubleshooting</h2>
+        
+        <h3>Q: Maps open to wrong location</h3>
+        <p><strong>A:</strong> Coordinates may be slightly off. Verify GPS coordinates precisely or use address instead of coordinates.</p>
+
+        <h3>Q: How do I add parking info?</h3>
+        <p><strong>A:</strong> Location QR codes just provide coordinates. Add parking instructions in text near the QR code or on your website.</p>
+
+        <h3>Q: Can users see street view?</h3>
+        <p><strong>A:</strong> Yes! Google Maps opens with your location. Users can swipe to street view and explore surroundings before visiting.</p>
+
+        <h3>Q: Works with offline maps?</h3>
+        <p><strong>A:</strong> Yes! If user has downloaded offline maps, location QR codes still work.</p>
+    </div>
+
+    <div class="section">
+        <h2>Create Your Location QR Code</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Generate Location QR Code</a>
+        
+        <div class="link-section">
+            <p><strong>Related Resources:</strong></p>
+            <a href="phone-qr-code.html">Phone QR Code</a>
+            <a href="url-qr-code.html">URL QR Code</a>
+            <a href="contact-qr-code.html">Contact QR Code</a>
+            <a href="custom-qr-code.html">Custom QR Code</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. Connecting people to places worldwide.</p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flutter QR Code Guide - Build QR Workflows into Mobile Apps</title>
+    <meta name="description" content="Plan QR code generation and scanning features inside a Flutter app, including mobile UX, offline behavior, asset quality, and integration choices.">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "Segoe UI", Arial, sans-serif; color: #203145; line-height: 1.7; background: #f4f9ff; }
+        .container { max-width: 920px; margin: 0 auto; padding: 24px; }
+        header { background: linear-gradient(135deg, #0f766e 0%, #2563eb 100%); color: #fff; padding: 52px 28px; border-radius: 22px; margin-bottom: 24px; }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.06; margin-bottom: 12px; }
+        .subtitle { max-width: 720px; color: rgba(255, 255, 255, 0.92); }
+        .section { background: #fff; padding: 28px; margin-bottom: 18px; border-radius: 18px; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07); border: 1px solid #d9e8f4; }
+        h2 { font-size: 1.65rem; color: #14532d; margin-bottom: 14px; }
+        h3 { font-size: 1.1rem; color: #1d4ed8; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 24px; }
+        li { margin-bottom: 8px; }
+        .callout { background: #ecfeff; border-left: 4px solid #0ea5e9; padding: 16px 18px; border-radius: 12px; margin: 18px 0; }
+        .cta { display: inline-block; background: #0f766e; color: #fff; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-weight: 700; margin-right: 12px; margin-top: 8px; }
+        .secondary { background: #dbeafe; color: #1e3a8a; }
+        .links a { color: #0f766e; text-decoration: none; margin-right: 18px; font-weight: 600; }
+        footer { text-align: center; color: #66768a; padding: 10px 0 22px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Flutter QR code guide</h1>
+        <p class="subtitle">Flutter is a strong fit for QR-heavy apps because the same product often needs both generation and scanning. The hard part is not drawing the code. It is designing a workflow that stays fast, readable, and reliable across devices.</p>
+    </header>
+
+    <div class="section">
+        <h2>Common Flutter QR scenarios</h2>
+        <ul>
+            <li>Membership cards, tickets, and access passes</li>
+            <li>Product lookup, loyalty, and retail scan flows</li>
+            <li>In-app sharing for invite links, payments, or contact exchange</li>
+            <li>Operations tools for logistics, field teams, and internal checklists</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Architecture decisions to make early</h2>
+        <h3>Static or dynamic destinations</h3>
+        <p>If the destination may change after release, your mobile app should generate a dynamic QR target rather than hard-coding a final link into every asset.</p>
+        <h3>Online or offline behavior</h3>
+        <p>Some apps only need to display a QR image. Others must cache payloads, scan from photos, and recover gracefully when connectivity is weak.</p>
+        <h3>On-device generation or backend generation</h3>
+        <p>On-device generation is fast for simple use cases. Backend generation is easier when you need tracking, auditability, branded presets, or high-volume batch output.</p>
+        <div class="callout">In Flutter projects, QR code performance issues are usually caused by image handling, scanning UX, or state flow around permissions and network calls, not by the QR payload itself.</div>
+    </div>
+
+    <div class="section">
+        <h2>Mobile UX best practices</h2>
+        <ol>
+            <li>Keep the code large enough for low-light phone cameras.</li>
+            <li>Use strong contrast and avoid fancy gradients inside the code.</li>
+            <li>Provide clear loading and error states around scan actions.</li>
+            <li>Let users import a screenshot when live camera scanning is not possible.</li>
+            <li>Show the destination or content type before the user commits to opening it.</li>
+        </ol>
+    </div>
+
+    <div class="section">
+        <h2>What to test before release</h2>
+        <ul>
+            <li>Different phone sizes and camera quality levels</li>
+            <li>Dark mode screens and low-brightness conditions</li>
+            <li>High-density codes carrying larger payloads</li>
+            <li>Printed assets produced from the app export flow</li>
+            <li>Permissions, camera fallback, and upload-from-gallery behavior</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Plan your Flutter QR workflow</h2>
+        <a class="cta" href="react-qr-code-generator.html">See a frontend QR guide</a>
+        <a class="cta secondary" href="qr-code-api.html">Explore QR API workflows</a>
+        <div class="links" style="margin-top:18px;">
+            <a href="javascript-qr-code-generator.html">JavaScript QR Code Generator</a>
+            <a href="react-qr-code-generator.html">React QR Code Generator</a>
+            <a href="qr-code-api.html">QR Code API</a>
+            <a href="qr-code-mobile.html">QR Code Mobile</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 QR Code Generator JP. Mobile-first QR planning for Flutter apps.</p>
+    </footer>
+</div>
+</body>
+</html>

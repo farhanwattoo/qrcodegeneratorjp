@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python QR Code Generator - Complete Tutorial</title>
+    <meta name="description" content="Generate QR codes with Python. Complete tutorial with code examples for qrcode library, PIL, and advanced customization.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #3776ab 0%, #2e4053 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #3776ab; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #e6f2ff; padding: 20px; border-left: 4px solid #3776ab; border-radius: 4px; margin: 20px 0; }
+        .feature-card { background: #f9f9f9; padding: 20px; border-radius: 8px; border: 1px solid #ddd; margin: 15px 0; }
+        .cta-button { background: #3776ab; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #2e4053; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #3776ab; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Python QR Code Generator</h1>
+        <p class="subtitle">Complete tutorial for generating QR codes with Python. Perfect for developers, data scientists, and automation engineers.</p>
+    </header>
+
+    <div class="section">
+        <h2>What You'll Learn</h2>
+        <p>In this comprehensive guide, you'll learn how to:</p>
+        <ul>
+            <li>Install and configure Python QR code libraries</li>
+            <li>Generate basic QR codes in 5 lines of code</li>
+            <li>Customize colors, sizes, and error correction</li>
+            <li>Add logos and images to QR codes</li>
+            <li>Batch generate QR codes</li>
+            <li>Integrate into Flask/Django applications</li>
+            <li>Deploy to production</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Installation</h2>
+        
+        <h3>Step 1: Install Python packages</h3>
+        <pre><code>pip install qrcode[pil]
+pip install pillow  # For image manipulation</code></pre>
+
+        <h3>Step 2: Verify installation</h3>
+        <pre><code>python -c "import qrcode; print(qrcode.__version__)"</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Basic QR Code Generation</h2>
+        
+        <h3>5-Line Solution</h3>
+        <pre><code>import qrcode
+
+qr = qrcode.QRCode()
+qr.add_data('https://qrcodegeneratorjp.com')
+qr.make()
+img = qr.make_image()
+img.save('qrcode.png')</code></pre>
+
+        <div class="highlight">
+            <strong>That's it!</strong> This generates a basic black-and-white QR code for any URL, text, or data.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Customization & Advanced Features</h2>
+        
+        <h3>Custom Colors & Sizing</h3>
+        <pre><code>import qrcode
+
+qr = qrcode.QRCode(
+    version=1,
+    error_correction=qrcode.constants.ERROR_CORRECT_H,
+    box_size=10,
+    border=4,
+)
+
+qr.add_data('https://example.com')
+qr.make(fit=True)
+
+img = qr.make_image(fill_color='#185FA5', back_color='white')
+img.save('colored_qr.png')</code></pre>
+
+        <h3>Adding a Logo</h3>
+        <pre><code>from PIL import Image
+import qrcode
+
+# Generate QR code
+qr = qrcode.QRCode()
+qr.add_data('https://example.com')
+qr.make()
+img = qr.make_image(fill_color='black', back_color='white').convert('RGB')
+
+# Add logo
+logo = Image.open('logo.png')
+qr_width, qr_height = img.size
+logo_size = qr_width // 5
+logo = logo.resize((logo_size, logo_size))
+
+logo_pos = ((qr_width - logo_size) // 2, (qr_height - logo_size) // 2)
+img.paste(logo, logo_pos, logo)
+
+img.save('qr_with_logo.png')</code></pre>
+
+        <h3>Batch Generation</h3>
+        <pre><code>import qrcode
+
+urls = [
+    'https://example.com/1',
+    'https://example.com/2',
+    'https://example.com/3',
+]
+
+for idx, url in enumerate(urls, 1):
+    qr = qrcode.QRCode()
+    qr.add_data(url)
+    qr.make()
+    img = qr.make_image()
+    img.save(f'qr_code_{idx}.png')</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Flask Integration</h2>
+        
+        <h3>Create QR Code API Endpoint</h3>
+        <pre><code>from flask import Flask, send_file, request
+from io import BytesIO
+import qrcode
+
+app = Flask(__name__)
+
+@app.route('/generate', methods=['GET'])
+def generate_qr():
+    data = request.args.get('data', 'https://example.com')
+    
+    qr = qrcode.QRCode()
+    qr.add_data(data)
+    qr.make()
+    img = qr.make_image()
+    
+    # Save to BytesIO object
+    img_io = BytesIO()
+    img.save(img_io, 'PNG')
+    img_io.seek(0)
+    
+    return send_file(img_io, mimetype='image/png')
+
+if __name__ == '__main__':
+    app.run(debug=True)</code></pre>
+
+        <p><strong>Usage:</strong> <code>http://localhost:5000/generate?data=https://example.com</code></p>
+    </div>
+
+    <div class="section">
+        <h2>Error Correction Levels</h2>
+        
+        <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+            <tr style="background: #f0f7ff;">
+                <th style="border: 1px solid #ddd; padding: 10px; text-align: left;">Level</th>
+                <th style="border: 1px solid #ddd; padding: 10px;">Recovery</th>
+                <th style="border: 1px solid #ddd; padding: 10px;">Use Case</th>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;"><code>ERROR_CORRECT_L</code></td>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;">7% damage</td>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;">Clean indoor use</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;"><code>ERROR_CORRECT_M</code></td>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;">15% damage</td>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;">Standard use</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;"><code>ERROR_CORRECT_Q</code></td>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;">25% damage</td>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;">Harsh environments</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;"><code>ERROR_CORRECT_H</code></td>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;">30% damage</td>
+                <td style="border: 1px solid #e0e0e0; padding: 10px;">Printed materials, outdoor</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Best Practices</h2>
+        
+        <h3>✅ Do's</h3>
+        <ul>
+            <li>Use ERROR_CORRECT_H for printed materials</li>
+            <li>Test generated codes on real devices</li>
+            <li>Cache generated QR codes when possible</li>
+            <li>Use high error correction for logos/images</li>
+            <li>Maintain aspect ratio for logos</li>
+        </ul>
+
+        <h3>❌ Don'ts</h3>
+        <ul>
+            <li>Don't make QR codes smaller than 1cm × 1cm</li>
+            <li>Don't use low contrast colors</li>
+            <li>Don't make logo larger than 20% of QR code</li>
+            <li>Don't store sensitive data in QR codes</li>
+            <li>Don't regenerate on every request (cache when possible)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Troubleshooting</h2>
+        
+        <h3>Q: ImportError: No module named 'PIL'</h3>
+        <p><strong>A:</strong> Run <code>pip install pillow</code></p>
+
+        <h3>Q: QR code won't scan</h3>
+        <p><strong>A:</strong> Increase error correction: Use <code>ERROR_CORRECT_H</code></p>
+
+        <h3>Q: Logo placement is wrong</h3>
+        <p><strong>A:</strong> Ensure logo is smaller than 20% of QR code size</p>
+
+        <h3>Q: How to track QR code scans?</h3>
+        <p><strong>A:</strong> Use URL shortener with analytics (bit.ly, TinyURL) or use our dynamic QR codes which provide built-in analytics</p>
+    </div>
+
+    <div class="section">
+        <h2>Generate Your QR Codes</h2>
+        <p>Ready to use Python to generate QR codes at scale?</p>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Generate QR Codes</a>
+        
+        <div class="link-section">
+            <p><strong>Related Resources:</strong></p>
+            <a href="javascript-qr-code-generator.html">JavaScript QR Code</a>
+            <a href="qr-code-api.html">QR Code API</a>
+            <a href="bulk-qr-code-generator.html">Bulk QR Generator</a>
+            <a href="nodejs-qr-code.html">Node.js QR Code</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. Built by developers for developers.</p>
+</footer>
+
+</body>
+</html>

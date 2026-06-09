@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Integration | How to Add QR Generation to Products and Workflows</title>
+    <meta name="description" content="Learn how to integrate QR code generation into apps, dashboards, campaigns, ecommerce, operations, and internal tools.">
+    <link rel="canonical" href="https://qrcodegeneratorjp.com/qr-code-integration.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f6f8fb; color: #243247; line-height: 1.7; }
+        .wrap { max-width: 960px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #1667a8, #0f446f); color: #fff; padding: 48px 28px; border-radius: 18px; margin: 20px 0 28px; }
+        h1 { font-size: 2.2rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.05rem; max-width: 760px; opacity: 0.92; }
+        .card { background: #fff; border-radius: 16px; padding: 28px; margin-bottom: 18px; box-shadow: 0 10px 30px rgba(22, 39, 72, 0.08); }
+        h2 { color: #0f446f; font-size: 1.7rem; margin-bottom: 14px; }
+        h3 { color: #1667a8; font-size: 1.15rem; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 22px; }
+        li { margin-bottom: 8px; }
+        pre { background: #16202f; color: #f3f6fb; padding: 18px; border-radius: 12px; overflow-x: auto; margin-top: 14px; line-height: 1.5; }
+        code { font-family: Consolas, monospace; }
+        table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        th, td { padding: 12px; border: 1px solid #d5dfeb; text-align: left; vertical-align: top; }
+        th { background: #eaf4fb; color: #0f446f; }
+        .note { background: #eef8ff; border-left: 4px solid #2683c0; padding: 18px; border-radius: 10px; }
+        .button { display: inline-block; text-decoration: none; background: #f2c44c; color: #0f446f; padding: 13px 22px; border-radius: 999px; font-weight: 700; }
+        .links a { color: #0f446f; text-decoration: none; margin-right: 16px; font-weight: 600; }
+        footer { text-align: center; color: #627389; padding: 24px 0 36px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <h1>QR Code Integration</h1>
+            <p class="subtitle">Adding QR generation to a product is usually straightforward. Designing the surrounding workflow so it is reliable, secure, editable, and measurable is where real integration work happens.</p>
+        </header>
+
+        <section class="card">
+            <h2>Where QR integration shows up</h2>
+            <ul>
+                <li>Product dashboards that let users generate a QR code for a link, file, or profile</li>
+                <li>Ecommerce systems that print package inserts or product labels</li>
+                <li>Operations tools for assets, tickets, orders, or inspections</li>
+                <li>Marketing systems that need campaign-specific landing pages and tracking</li>
+                <li>Customer success flows that turn setup or download URLs into scanable assets</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Core architecture choices</h2>
+            <table>
+                <tr>
+                    <th>Decision</th>
+                    <th>Option A</th>
+                    <th>Option B</th>
+                </tr>
+                <tr>
+                    <td>Generation location</td>
+                    <td>Client-side for quick previews</td>
+                    <td>Server-side for control and consistency</td>
+                </tr>
+                <tr>
+                    <td>QR type</td>
+                    <td>Static for fixed destinations</td>
+                    <td>Dynamic for editable campaigns</td>
+                </tr>
+                <tr>
+                    <td>Storage</td>
+                    <td>Generate on demand</td>
+                    <td>Persist generated assets and metadata</td>
+                </tr>
+                <tr>
+                    <td>Tracking</td>
+                    <td>No scan analytics</td>
+                    <td>Track scans, destinations, and ownership</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Recommended integration flow</h2>
+            <ol>
+                <li>Define the object that owns the QR code, such as an order, product, campaign, or asset.</li>
+                <li>Choose whether the destination should be static or editable later.</li>
+                <li>Generate with tested defaults for size, contrast, and error correction.</li>
+                <li>Store metadata such as owner ID, source value, format, and creation time.</li>
+                <li>Provide a download path for downstream users like designers or operations teams.</li>
+            </ol>
+            <div class="note">
+                <strong>Tip:</strong> The most common integration mistake is treating the QR image as the only artifact. The metadata and ownership model matter just as much.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Simple API-style example</h2>
+            <pre><code>POST /api/qr-codes
+{
+  "ownerType": "campaign",
+  "ownerId": "cmp_2045",
+  "data": "https://example.com/spring-launch",
+  "format": "svg",
+  "dynamic": true
+}</code></pre>
+            <pre><code>{
+  "id": "qr_92a1",
+  "imageUrl": "https://cdn.example.com/qr/qr_92a1.svg",
+  "redirectUrl": "https://qr.example.com/r/92a1",
+  "createdAt": "2026-06-04T09:30:00Z"
+}</code></pre>
+        </section>
+
+        <section class="card">
+            <h2>Integration concerns teams forget</h2>
+            <ul>
+                <li>Permissions: who can create, update, or replace a destination</li>
+                <li>Versioning: how destination changes are logged</li>
+                <li>Print readiness: designers often need SVG or high-resolution files</li>
+                <li>Retention: whether unused assets should be kept or archived</li>
+                <li>Testing: production scans on real devices and materials</li>
+            </ul>
+        </section>
+
+        <section class="card links">
+            <h2>Build the whole workflow, not just the image</h2>
+            <p>Reliable QR integration means your product can generate, store, govern, and deliver codes in a way other teams can trust.</p>
+            <a class="button" href="qr-code-api.html">Start with the API path</a>
+            <p style="margin-top: 18px;"><strong>Related guides:</strong></p>
+            <a href="qr-code-api.html">QR Code API</a>
+            <a href="qr-code-library.html">QR Code Library</a>
+            <a href="qr-code-open-source.html">Open Source QR Code Generator</a>
+            <a href="dynamic-qr-code-generator.html">Dynamic QR Code Generator</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 QR Code Generator JP. Practical guidance for QR code integration projects.</p>
+        </footer>
+    </div>
+</body>
+</html>

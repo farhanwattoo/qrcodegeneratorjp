@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node.js QR Code Generator - Express.js & npm Packages</title>
+    <meta name="description" content="Generate QR codes with Node.js. Express.js API endpoints, npm packages, streaming responses. Complete tutorial with code examples.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #68A063 0%, #4CAF50 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #4CAF50; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #e8f5e9; padding: 20px; border-left: 4px solid #4CAF50; border-radius: 4px; margin: 20px 0; }
+        .cta-button { background: #4CAF50; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #388E3C; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #4CAF50; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Node.js QR Code Generator</h1>
+        <p class="subtitle">Generate QR codes with Node.js. Express.js REST APIs, streaming responses, and npm package integration.</p>
+    </header>
+
+    <div class="section">
+        <h2>Popular npm Packages</h2>
+        <ul>
+            <li><strong>qrcode:</strong> Most popular, browser + Node.js compatible</li>
+            <li><strong>qr-image:</strong> Pure JavaScript, lightweight</li>
+            <li><strong>qr.js:</strong> Client-side focus but Node.js compatible</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Installation</h2>
+        <pre><code>npm install qrcode express</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Basic Node.js Example</h2>
+
+        <h3>Generate & Save</h3>
+        <pre><code>const QRCode = require('qrcode');
+
+// Generate and save as file
+QRCode.toFile('qrcode.png', 'https://example.com', {
+  color: {
+    dark: '#000000',
+    light: '#FFFFFF'
+  }
+}, (err) => {
+  if (err) throw err;
+  console.log('QR code saved!');
+});
+
+// Or get data URL
+QRCode.toDataURL('https://example.com', (err, url) => {
+  if (err) throw err;
+  console.log(url); // data:image/png;base64,...
+});</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Express.js REST API</h2>
+
+        <h3>Full Server Example</h3>
+        <pre><code>const express = require('express');
+const QRCode = require('qrcode');
+const app = express();
+
+// Generate and stream PNG
+app.get('/generate', async (req, res) => {
+  try {
+    const { data, size = 300 } = req.query;
+    
+    if (!data) {
+      return res.status(400).json({ error: 'Missing data parameter' });
+    }
+    
+    res.type('image/png');
+    
+    await QRCode.toStream(res, data, {
+      width: size,
+      color: {
+        dark: '#185FA5',
+        light: '#FFFFFF'
+      },
+      errorCorrectionLevel: 'H'
+    });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Generate and return data URL
+app.get('/generate-data-url', async (req, res) => {
+  try {
+    const { data } = req.query;
+    const dataUrl = await QRCode.toDataURL(data);
+    
+    res.json({ qrCode: dataUrl });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+// Generate and download as file
+app.get('/download', async (req, res) => {
+  try {
+    const { data } = req.query;
+    
+    res.setHeader('Content-Disposition', 'attachment; filename="qrcode.png"');
+    res.type('image/png');
+    
+    await QRCode.toStream(res, data);
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.listen(3000, () => {
+  console.log('QR Code server running on :3000');
+});</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Async/Await Pattern</h2>
+
+        <pre><code>const QRCode = require('qrcode');
+const fs = require('fs').promises;
+
+async function generateQRCode(data, filename) {
+  try {
+    await QRCode.toFile(filename, data, {
+      errorCorrectionLevel: 'H',
+      width: 300
+    });
+    console.log(`✓ Generated ${filename}`);
+  } catch (error) {
+    console.error('Error generating QR code:', error);
+  }
+}
+
+// Usage
+await generateQRCode('https://example.com', 'qrcode.png');</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Batch Processing</h2>
+
+        <pre><code>const QRCode = require('qrcode');
+const fs = require('fs').promises;
+
+async function batchGenerate(urls, outputDir) {
+  // Create output directory if needed
+  await fs.mkdir(outputDir, { recursive: true });
+  
+  for (let i = 0; i < urls.length; i++) {
+    const filename = `${outputDir}/qr_${i + 1}.png`;
+    
+    await QRCode.toFile(filename, urls[i], {
+      width: 300,
+      errorCorrectionLevel: 'H'
+    });
+    
+    console.log(`✓ Generated ${i + 1}/${urls.length}`);
+  }
+  
+  console.log('✓ Batch complete!');
+}
+
+// Usage
+const urls = [
+  'https://example.com/1',
+  'https://example.com/2',
+  'https://example.com/3'
+];
+
+batchGenerate(urls, './qrcodes');</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Middleware Integration</h2>
+
+        <pre><code>const qrMiddleware = (req, res, next) => {
+  res.qr = async (data, options = {}) => {
+    try {
+      res.type('image/png');
+      await QRCode.toStream(res, data, {
+        width: options.size || 300,
+        errorCorrectionLevel: options.errorCorrection || 'H',
+        ...options
+      });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  };
+  next();
+};
+
+app.use(qrMiddleware);
+
+// Usage in routes
+app.get('/qr', (req, res) => {
+  res.qr(req.query.url);
+});</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Options & Customization</h2>
+
+        <pre><code>const options = {
+  // Size of QR code
+  width: 300,
+  
+  // Error correction level
+  errorCorrectionLevel: 'H',  // L, M, Q, H
+  
+  // Type of output
+  type: 'image/png',
+  
+  // Margin around QR code
+  margin: 1,
+  
+  // Color settings
+  color: {
+    dark: '#000000',
+    light: '#FFFFFF'
+  },
+  
+  // Quality (for jpeg)
+  quality: 0.95
+};
+
+await QRCode.toFile('qrcode.png', 'https://example.com', options);</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Error Handling Best Practices</h2>
+
+        <pre><code>const generateSafe = async (data) => {
+  try {
+    // Validate input
+    if (!data || typeof data !== 'string') {
+      throw new Error('Invalid data');
+    }
+    
+    if (data.length > 2953) {
+      throw new Error('Data too long');
+    }
+    
+    const qrCode = await QRCode.toDataURL(data);
+    return qrCode;
+    
+  } catch (error) {
+    console.error('QR generation failed:', error.message);
+    throw error;
+  }
+};</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Generate Your QR Codes</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Create QR Codes Now</a>
+        
+        <div class="link-section">
+            <p><strong>Related Resources:</strong></p>
+            <a href="javascript-qr-code-generator.html">JavaScript QR Code</a>
+            <a href="qr-code-api.html">QR Code API</a>
+            <a href="python-qr-code-generator.html">Python QR Code</a>
+            <a href="bulk-qr-code-generator.html">Bulk QR Generator</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. Node.js-powered QR code generation.</p>
+</footer>
+
+</body>
+</html>

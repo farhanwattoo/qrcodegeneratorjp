@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Sheets QR Code | Generate QR Codes from Spreadsheet Data</title>
+    <meta name="description" content="Create QR codes from Google Sheets data using formulas, Apps Script, and automation workflows. Ideal for bulk labels, tickets, and inventory.">
+    <link rel="canonical" href="https://qrcodegeneratorjp.com/google-sheets-qr-code.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f6f8fb; color: #243247; line-height: 1.7; }
+        .wrap { max-width: 960px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #1f8f54, #11663b); color: #fff; padding: 48px 28px; border-radius: 18px; margin: 20px 0 28px; }
+        h1 { font-size: 2.3rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.05rem; max-width: 760px; opacity: 0.92; }
+        .card { background: #fff; border-radius: 16px; padding: 28px; margin-bottom: 18px; box-shadow: 0 10px 30px rgba(22, 39, 72, 0.08); }
+        h2 { color: #11663b; font-size: 1.7rem; margin-bottom: 14px; }
+        h3 { color: #1f8f54; font-size: 1.15rem; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 22px; }
+        li { margin-bottom: 8px; }
+        pre { background: #16202f; color: #f3f6fb; padding: 18px; border-radius: 12px; overflow-x: auto; margin-top: 14px; line-height: 1.5; }
+        code { font-family: Consolas, monospace; }
+        table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        th, td { padding: 12px; border: 1px solid #d5dfeb; text-align: left; vertical-align: top; }
+        th { background: #e9f7ef; color: #11663b; }
+        .note { background: #eefbf2; border-left: 4px solid #27a45d; padding: 18px; border-radius: 10px; }
+        .button { display: inline-block; text-decoration: none; background: #f2c44c; color: #11663b; padding: 13px 22px; border-radius: 999px; font-weight: 700; }
+        .links a { color: #11663b; text-decoration: none; margin-right: 16px; font-weight: 600; }
+        footer { text-align: center; color: #627389; padding: 24px 0 36px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <h1>Google Sheets QR Code</h1>
+            <p class="subtitle">Use Google Sheets to manage rows of URLs, product IDs, event tickets, or contact data and generate QR codes in a repeatable spreadsheet workflow.</p>
+        </header>
+
+        <section class="card">
+            <h2>Why teams build QR code workflows in Sheets</h2>
+            <p>Google Sheets is often the simplest operational database a team already has. If marketing, operations, events, or inventory teams are already maintaining rows of records there, a spreadsheet-driven QR workflow can be faster to launch than building a separate dashboard from scratch.</p>
+            <ul>
+                <li>Manage bulk QR code campaigns without custom backend work</li>
+                <li>Give non-developers a familiar editing surface</li>
+                <li>Prepare labels, tickets, coupons, and unique links in batches</li>
+                <li>Combine spreadsheet logic with Apps Script automation</li>
+                <li>Export clean CSV data into bulk generators or internal tools</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Three common implementation paths</h2>
+            <table>
+                <tr>
+                    <th>Approach</th>
+                    <th>Best for</th>
+                    <th>Tradeoff</th>
+                </tr>
+                <tr>
+                    <td>Image formula</td>
+                    <td>Quick internal previews</td>
+                    <td>Limited control and weaker production workflows</td>
+                </tr>
+                <tr>
+                    <td>Apps Script</td>
+                    <td>Automation, exports, document generation</td>
+                    <td>Needs script maintenance</td>
+                </tr>
+                <tr>
+                    <td>API plus Sheets</td>
+                    <td>Large-scale or dynamic QR code systems</td>
+                    <td>Requires external service design</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>Simple formula-based example</h2>
+            <p>If a QR endpoint returns an image for a given URL, you can preview QR codes directly inside a sheet.</p>
+            <pre><code>=IMAGE("https://api.qrcodegeneratorjp.com/v1/image?data=" &amp; ENCODEURL(A2) &amp; "&amp;size=200")</code></pre>
+            <p>That approach is fast for prototypes, but for printing, tracking, or controlled batch output, Apps Script is usually stronger.</p>
+        </section>
+
+        <section class="card">
+            <h2>Apps Script example</h2>
+            <p>This pattern reads rows from a sheet and writes a QR image URL into a new column.</p>
+            <pre><code>function buildQrLinks() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName('QR Data');
+  const lastRow = sheet.getLastRow();
+  const values = sheet.getRange(2, 1, lastRow - 1, 1).getValues();
+
+  const output = values.map(([value]) =&gt; {
+    if (!value) return [''];
+    const encoded = encodeURIComponent(value);
+    const imageUrl = `https://api.qrcodegeneratorjp.com/v1/image?data=${encoded}&size=300`;
+    return [imageUrl];
+  });
+
+  sheet.getRange(2, 2, output.length, 1).setValues(output);
+}</code></pre>
+            <div class="note">
+                <strong>Tip:</strong> Store source data in one column and QR outputs in another. That keeps audits and re-generation easier later.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Good Google Sheets QR code use cases</h2>
+            <ul>
+                <li>Inventory or warehouse location labels</li>
+                <li>Event badges and guest lists</li>
+                <li>Coupon or voucher batches</li>
+                <li>Sales rep contact cards</li>
+                <li>Product packaging and serialized inserts</li>
+            </ul>
+            <p>If every row needs its own destination, make sure your sheet includes a stable unique identifier and not only a display label.</p>
+        </section>
+
+        <section class="card">
+            <h2>What to watch for</h2>
+            <ul>
+                <li>Broken rows caused by malformed URLs</li>
+                <li>Duplicate IDs that create the wrong QR destination</li>
+                <li>Very long data strings that make dense codes harder to print</li>
+                <li>Manual edits that bypass validation</li>
+                <li>Permissions and sharing settings if multiple people maintain the sheet</li>
+            </ul>
+        </section>
+
+        <section class="card links">
+            <h2>Build a sheet-driven QR workflow</h2>
+            <p>Use Sheets when you need a low-friction interface for operators and a predictable way to batch-create codes.</p>
+            <a class="button" href="bulk-qr-code-generator.html">Start with bulk QR generation</a>
+            <p style="margin-top: 18px;"><strong>Related guides:</strong></p>
+            <a href="qr-code-api.html">QR Code API</a>
+            <a href="batch-qr-code-generator.html">Batch QR Code Generator</a>
+            <a href="dynamic-qr-code-generator.html">Dynamic QR Code Generator</a>
+            <a href="excel-vba-qr-code.html">Excel VBA QR Code</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 QR Code Generator JP. Spreadsheet-driven QR generation workflows.</p>
+        </footer>
+    </div>
+</body>
+</html>

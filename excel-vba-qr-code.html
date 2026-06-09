@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excel VBA QR Code | Generate QR Codes from Excel Workbooks</title>
+    <meta name="description" content="Use Excel and VBA to automate QR code generation for labels, inventory, visitor records, and offline operations.">
+    <link rel="canonical" href="https://qrcodegeneratorjp.com/excel-vba-qr-code.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f6f8fb; color: #243247; line-height: 1.7; }
+        .wrap { max-width: 960px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #166f45, #0f4d2f); color: #fff; padding: 48px 28px; border-radius: 18px; margin: 20px 0 28px; }
+        h1 { font-size: 2.28rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.05rem; max-width: 760px; opacity: 0.92; }
+        .card { background: #fff; border-radius: 16px; padding: 28px; margin-bottom: 18px; box-shadow: 0 10px 30px rgba(22, 39, 72, 0.08); }
+        h2 { color: #0f4d2f; font-size: 1.7rem; margin-bottom: 14px; }
+        h3 { color: #166f45; font-size: 1.15rem; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 22px; }
+        li { margin-bottom: 8px; }
+        pre { background: #16202f; color: #f3f6fb; padding: 18px; border-radius: 12px; overflow-x: auto; margin-top: 14px; line-height: 1.5; }
+        code { font-family: Consolas, monospace; }
+        .note { background: #eefaf2; border-left: 4px solid #2aa05e; padding: 18px; border-radius: 10px; }
+        .button { display: inline-block; text-decoration: none; background: #f2c44c; color: #0f4d2f; padding: 13px 22px; border-radius: 999px; font-weight: 700; }
+        .links a { color: #0f4d2f; text-decoration: none; margin-right: 16px; font-weight: 600; }
+        footer { text-align: center; color: #627389; padding: 24px 0 36px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <h1>Excel VBA QR Code</h1>
+            <p class="subtitle">Excel remains a practical operations tool in many organizations. VBA can help generate QR codes for labels, internal records, asset tags, and document-driven workflows.</p>
+        </header>
+
+        <section class="card">
+            <h2>Why teams still use Excel for QR generation</h2>
+            <p>Not every workflow lives in a web app. Manufacturing teams, finance teams, field operations, and small businesses still run important processes in Excel. If those teams need QR codes tied to spreadsheet rows, VBA can provide lightweight automation without changing the whole operating model.</p>
+            <ul>
+                <li>Generate codes from existing workbook data</li>
+                <li>Prepare printable sheets for labels and tags</li>
+                <li>Build controlled offline-friendly workflows</li>
+                <li>Reuse familiar Excel templates and validations</li>
+                <li>Support internal users who do not need a full custom app</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Basic VBA approach</h2>
+            <p>A common pattern is to read a value from a cell, create a QR image URL, and either save it in another column or insert the image into the worksheet.</p>
+            <pre><code>Sub BuildQrImageLinks()
+    Dim ws As Worksheet
+    Dim lastRow As Long
+    Dim i As Long
+    Dim rawValue As String
+    Dim encodedValue As String
+    Dim qrUrl As String
+
+    Set ws = ThisWorkbook.Worksheets("QR Data")
+    lastRow = ws.Cells(ws.Rows.Count, 1).End(xlUp).Row
+
+    For i = 2 To lastRow
+        rawValue = Trim(ws.Cells(i, 1).Value)
+        If rawValue &lt;&gt; "" Then
+            encodedValue = WorksheetFunction.EncodeURL(rawValue)
+            qrUrl = "https://api.qrcodegeneratorjp.com/v1/image?data=" &amp; encodedValue &amp; "&amp;size=300"
+            ws.Cells(i, 2).Value = qrUrl
+        End If
+    Next i
+End Sub</code></pre>
+        </section>
+
+        <section class="card">
+            <h2>When VBA is a good fit</h2>
+            <ul>
+                <li>Internal label sheets and asset tracking</li>
+                <li>Visitor, employee, or inventory records</li>
+                <li>Excel-driven mail merges or reporting packs</li>
+                <li>Legacy office workflows that cannot move quickly to a web stack</li>
+            </ul>
+            <p>If multiple teams need concurrent editing or real-time analytics, Sheets or an API-based system may scale better.</p>
+        </section>
+
+        <section class="card">
+            <h2>Useful guardrails</h2>
+            <ul>
+                <li>Validate URLs or data length before generating codes</li>
+                <li>Keep one row per QR destination with a stable unique key</li>
+                <li>Separate source values from generated output columns</li>
+                <li>Test printing, especially if the workbook feeds label stock</li>
+                <li>Document the macro clearly for colleagues maintaining it later</li>
+            </ul>
+            <div class="note">
+                <strong>Tip:</strong> For larger runs, generate links in Excel and let a batch or API process create the final assets rather than embedding every image manually in the workbook.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Common limitations</h2>
+            <ul>
+                <li>VBA can become fragile if workbook structure changes often</li>
+                <li>Image-heavy workbooks grow quickly in file size</li>
+                <li>Manual desktop workflows are harder to audit at scale</li>
+                <li>Sharing macros across locked-down environments can be difficult</li>
+            </ul>
+        </section>
+
+        <section class="card links">
+            <h2>Choose the right spreadsheet path</h2>
+            <p>Excel works best when your team already relies on workbook-based processes and needs controlled automation, not a full platform rebuild.</p>
+            <a class="button" href="bulk-qr-code-generator.html">Use bulk QR workflows</a>
+            <p style="margin-top: 18px;"><strong>Related guides:</strong></p>
+            <a href="google-sheets-qr-code.html">Google Sheets QR Code</a>
+            <a href="batch-qr-code-generator.html">Batch QR Code Generator</a>
+            <a href="qr-code-api.html">QR Code API</a>
+            <a href="qr-code-library.html">QR Code Library</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 QR Code Generator JP. QR automation for Excel and operational spreadsheets.</p>
+        </footer>
+    </div>
+</body>
+</html>

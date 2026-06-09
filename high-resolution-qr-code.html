@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>High Resolution QR Code - Print Quality</title>
+    <meta name="description" content="Generate high-resolution QR codes for professional print. DPI requirements, size specifications, and quality standards.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #FF9800 0%, #F57C00 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #E65100; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #ffe0b2; font-weight: bold; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #fff3e0; padding: 20px; border-left: 4px solid #FF9800; border-radius: 4px; margin: 20px 0; }
+        .cta-button { background: #FF9800; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #E65100; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #FF9800; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>High Resolution QR Code</h1>
+        <p class="subtitle">Professional print-quality QR codes. DPI standards, size specifications, and premium output options.</p>
+    </header>
+
+    <div class="section">
+        <h2>What is Resolution for QR Codes?</h2>
+        
+        <p>Resolution refers to DPI (dots per inch), which measures print quality. Higher DPI = sharper, crisper printed codes.</p>
+        
+        <table>
+            <tr>
+                <th>DPI Level</th>
+                <th>Use Case</th>
+                <th>Quality</th>
+            </tr>
+            <tr>
+                <td><strong>72 DPI</strong></td>
+                <td>Screen display only</td>
+                <td>Low (pixelated)</td>
+            </tr>
+            <tr>
+                <td><strong>150 DPI</strong></td>
+                <td>Basic printing</td>
+                <td>Fair</td>
+            </tr>
+            <tr>
+                <td><strong>300 DPI</strong></td>
+                <td>Professional print</td>
+                <td>Excellent ✓</td>
+            </tr>
+            <tr>
+                <td><strong>600 DPI</strong></td>
+                <td>Premium print</td>
+                <td>Perfect</td>
+            </tr>
+        </table>
+
+        <div class="highlight">
+            <strong>Industry Standard:</strong> 300 DPI is the professional printing standard. Use this for all commercial QR code production.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Size Specifications</h2>
+
+        <h3>Standard Sizes for Print</h3>
+        <ul>
+            <li><strong>Small:</strong> 1" × 1" (25mm) - Good for labels</li>
+            <li><strong>Medium:</strong> 2" × 2" (50mm) - Product packaging</li>
+            <li><strong>Large:</strong> 3" × 3" (75mm) - Posters and signage</li>
+            <li><strong>Extra Large:</strong> 4" × 4" (100mm) - Billboard/outdoor</li>
+        </ul>
+
+        <h3>Pixel to Size Conversion (300 DPI)</h3>
+        <table>
+            <tr>
+                <th>Size (inches)</th>
+                <th>Size (mm)</th>
+                <th>Pixels at 300 DPI</th>
+            </tr>
+            <tr>
+                <td>1"</td>
+                <td>25mm</td>
+                <td>300 × 300</td>
+            </tr>
+            <tr>
+                <td>2"</td>
+                <td>50mm</td>
+                <td>600 × 600</td>
+            </tr>
+            <tr>
+                <td>3"</td>
+                <td>75mm</td>
+                <td>900 × 900</td>
+            </tr>
+            <tr>
+                <td>4"</td>
+                <td>100mm</td>
+                <td>1200 × 1200</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Python - Generate High Resolution</h2>
+
+        <pre><code>import qrcode
+from PIL import Image
+
+def create_high_res_qr(data, filename, dpi=300, size_inches=2):
+    """
+    Create high resolution QR code for print.
+    
+    Args:
+        data: URL or text to encode
+        filename: Output filename
+        dpi: Dots per inch (300 is standard)
+        size_inches: Final print size in inches
+    """
+    # Calculate pixels needed
+    pixels = int(size_inches * dpi)
+    
+    # Generate QR
+    qr = qrcode.QRCode(
+        version=1,
+        error_correction=qrcode.constants.ERROR_CORRECT_H,
+        box_size=10,
+        border=2,
+    )
+    qr.add_data(data)
+    qr.make(fit=True)
+    
+    # Create image at high resolution
+    img = qr.make_image(fill_color='black', back_color='white').convert('RGB')
+    
+    # Resize to exact print size
+    img = img.resize((pixels, pixels), Image.Resampling.LANCZOS)
+    
+    # Save with DPI metadata
+    img.save(filename, dpi=(dpi, dpi))
+    print(f'High-res QR saved: {filename} ({size_inches}"×{size_inches}" at {dpi} DPI)')
+
+# Usage
+create_high_res_qr('https://example.com', 'qrcode_300dpi.png', dpi=300, size_inches=2)</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Best Practices for Print</h2>
+
+        <ul>
+            <li><strong>Use 300 DPI Minimum</strong> - Professional standard</li>
+            <li><strong>PNG Format</strong> - Lossless quality</li>
+            <li><strong>Black and White Only</strong> - Avoid gradients</li>
+            <li><strong>No Compression</strong> - Save uncompressed</li>
+            <li><strong>Test Print</strong> - Always test-scan before production</li>
+            <li><strong>CMYK Color Space</strong> - For commercial printing</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>File Format Recommendations</h2>
+
+        <h3>For Digital Use</h3>
+        <ul>
+            <li>PNG (lossless, recommended)</li>
+            <li>TIFF (professional print prep)</li>
+        </ul>
+
+        <h3>For Professional Printing</h3>
+        <ul>
+            <li>TIFF (at 300 DPI or higher)</li>
+            <li>EPS (vector format, scalable)</li>
+            <li>PDF (embedded fonts and colors)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Create High-Resolution QR</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Generate High-Res QR</a>
+        
+        <div class="link-section">
+            <p><strong>Related Formats:</strong></p>
+            <a href="qr-code-300dpi.html">QR Code 300 DPI</a>
+            <a href="qr-code-eps.html">EPS QR Code</a>
+            <a href="qr-code-png.html">PNG QR Code</a>
+            <a href="qr-code-pdf.html">PDF QR Code</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. Professional print-quality QR codes.</p>
+</footer>
+
+</body>
+</html>

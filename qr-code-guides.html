@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Guides, Examples, and Use Cases | QR Code Generator JP</title>
+    <meta name="description" content="Explore QR code guides by type, design, print format, industry use case, and developer workflow. Find the right QR code page fast.">
+    <link rel="canonical" href="https://qrcodegeneratorjp.com/qr-code-guides.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="QR Code Guides, Examples, and Use Cases">
+    <meta property="og:description" content="Browse QR code guides across data types, branding workflows, print output, industry use cases, and developer tutorials.">
+    <meta property="og:url" content="https://qrcodegeneratorjp.com/qr-code-guides.html">
+    <meta property="og:site_name" content="QR Code Generator JP">
+    <meta property="og:image" content="https://qrcodegeneratorjp.com/og-image.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QR Code Guides, Examples, and Use Cases">
+    <meta name="twitter:description" content="Find live QR code guides grouped by topic, format, industry, and developer workflow.">
+    <style>
+        :root {
+            --bg: #f5f7fb;
+            --surface: #ffffff;
+            --surface-soft: #eef3ff;
+            --text: #142033;
+            --muted: #5b6475;
+            --primary: #3559d8;
+            --primary-dark: #243fa5;
+            --border: #d8e0f0;
+            --shadow: 0 18px 45px rgba(24, 39, 75, 0.08);
+            --radius: 22px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            background:
+                radial-gradient(circle at top left, rgba(53, 89, 216, 0.12), transparent 32%),
+                linear-gradient(180deg, #f8faff 0%, var(--bg) 100%);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .page-shell {
+            max-width: 1180px;
+            margin: 0 auto;
+            padding: 24px 20px 64px;
+        }
+
+        .top-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 999px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.82);
+            color: var(--muted);
+            transition: 0.2s ease;
+        }
+
+        .top-nav a:hover,
+        .top-nav a:focus-visible {
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+
+        .hero {
+            background:
+                linear-gradient(135deg, rgba(34, 65, 178, 0.98), rgba(36, 121, 213, 0.94)),
+                #2448c0;
+            color: #fff;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: var(--shadow);
+            margin-bottom: 26px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            font-size: 12px;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            opacity: 0.86;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 4vw, 3.4rem);
+            line-height: 1.05;
+            margin-bottom: 14px;
+            max-width: 760px;
+        }
+
+        .hero p {
+            max-width: 760px;
+            font-size: 1.05rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 24px;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .button {
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 999px;
+            padding: 12px 20px;
+            transition: transform 0.2s ease, opacity 0.2s ease;
+        }
+
+        .button:hover,
+        .button:focus-visible {
+            transform: translateY(-1px);
+            opacity: 0.96;
+        }
+
+        .button-primary {
+            background: #fff;
+            color: var(--primary-dark);
+        }
+
+        .button-secondary {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            border: 1px solid rgba(255, 255, 255, 0.22);
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.88);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 18px 20px;
+            box-shadow: 0 8px 24px rgba(24, 39, 75, 0.05);
+        }
+
+        .stat-label {
+            color: var(--muted);
+            font-size: 0.84rem;
+            margin-bottom: 6px;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+
+        .intro-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 24px;
+            margin-bottom: 28px;
+            box-shadow: 0 12px 34px rgba(24, 39, 75, 0.06);
+        }
+
+        .intro-card p + p {
+            margin-top: 12px;
+        }
+
+        .guide-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .guide-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: 0 12px 30px rgba(24, 39, 75, 0.05);
+        }
+
+        .guide-card h2 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+
+        .guide-card p {
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .guide-list {
+            list-style: none;
+            display: grid;
+            gap: 10px;
+        }
+
+        .guide-list a {
+            display: block;
+            text-decoration: none;
+            background: var(--surface-soft);
+            border: 1px solid transparent;
+            border-radius: 14px;
+            padding: 11px 14px;
+            font-weight: 600;
+            color: var(--primary-dark);
+            transition: 0.2s ease;
+        }
+
+        .guide-list a span {
+            display: block;
+            color: var(--muted);
+            font-weight: 400;
+            font-size: 0.9rem;
+            margin-top: 2px;
+        }
+
+        .guide-list a:hover,
+        .guide-list a:focus-visible {
+            border-color: rgba(53, 89, 216, 0.24);
+            background: #fff;
+            transform: translateY(-1px);
+        }
+
+        .footer-cta {
+            margin-top: 28px;
+            background: linear-gradient(135deg, #102b68, #173a8f);
+            color: #fff;
+            border-radius: 28px;
+            padding: 32px;
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            align-items: center;
+            box-shadow: var(--shadow);
+        }
+
+        .footer-cta p {
+            color: rgba(255, 255, 255, 0.86);
+            max-width: 640px;
+        }
+
+        @media (max-width: 900px) {
+            .stats,
+            .guide-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero,
+            .intro-card,
+            .guide-card,
+            .footer-cta {
+                padding: 24px;
+            }
+
+            .footer-cta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+    <main class="page-shell">
+        <nav class="top-nav" aria-label="Primary">
+            <a href="/">Home</a>
+            <a href="free-qr-code-generator.html">Free QR Code Generator</a>
+            <a href="qr-code-generator.html">QR Code Creator</a>
+            <a href="qr-code-online.html">Online QR Tool</a>
+        </nav>
+
+        <section class="hero">
+            <span class="eyebrow">Content Hub</span>
+            <h1>QR code guides, examples, and use cases in one place</h1>
+            <p>This page brings the live topical-authority rollout into a single crawlable hub. Browse data-type guides, branding workflows, print formats, industry pages, and developer tutorials without hunting through the sitemap.</p>
+            <div class="hero-actions">
+                <a class="button button-primary" href="free-qr-code-generator.html">Start with the generator</a>
+                <a class="button button-secondary" href="qr-code-api.html">Explore developer docs</a>
+            </div>
+        </section>
+
+        <section class="stats" aria-label="Guide stats">
+            <article class="stat-card">
+                <div class="stat-label">Live guide clusters</div>
+                <div class="stat-value">8</div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-label">Published guide pages</div>
+                <div class="stat-value">114</div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-label">Last structured update</div>
+                <div class="stat-value">June 4, 2026</div>
+            </article>
+        </section>
+
+        <section class="intro-card">
+            <p>Use this hub as the shortest path into the live content library. It groups related pages the way search engines and users actually discover them: by QR code type, by design need, by output format, by industry scenario, and by implementation workflow.</p>
+            <p>The current structure covers the full planned pillar set across creation intent, education, device help, troubleshooting, developer workflows, and long-tail use cases. It also includes the exact long-tail variants that often appear in QR planning documents, such as event iCal, crypto payment, browser context, camera scanning, and dark-mode troubleshooting. If you already know what you want to make, jump straight to the generator. If you are still choosing the right QR format or page, start with the lists below and follow the cluster that matches your use case.</p>
+        </section>
+
+        <section class="guide-grid">
+            <article class="guide-card">
+                <h2>Core generators and entry points</h2>
+                <p>Start here if you want a broad overview or a fast path into the main tool.</p>
+                <ul class="guide-list">
+                    <li><a href="free-qr-code-generator.html">Free QR Code Generator<span>Create QR codes directly in the browser.</span></a></li>
+                    <li><a href="qr-code-generator.html">QR Code Creator<span>Main product page for general creation intent.</span></a></li>
+                    <li><a href="qr-code-online.html">Online QR Code Tool<span>Fast-loading alternative entry page.</span></a></li>
+                    <li><a href="url-qr-code.html">URL QR Code<span>Turn web links into scan-ready destinations.</span></a></li>
+                    <li><a href="wifi-qr-code.html">WiFi QR Code<span>Share network access without typing passwords.</span></a></li>
+                </ul>
+            </article>
+
+            <article class="guide-card">
+                <h2>QR code types and destinations</h2>
+                <p>Pages grouped by the payload users want to encode and share.</p>
+                <ul class="guide-list">
+                    <li><a href="contact-qr-code.html">Contact QR Code<span>Share vCard details and saved contacts.</span></a></li>
+                    <li><a href="email-qr-code.html">Email QR Code<span>Open draft emails with one scan.</span></a></li>
+                    <li><a href="line-qr-code.html">LINE QR Code<span>Drive chats and follows from print or screens.</span></a></li>
+                    <li><a href="pdf-qr-code.html">PDF QR Code<span>Send users to brochures, menus, or documents.</span></a></li>
+                    <li><a href="text-qr-code.html">Text QR Code<span>Show plain-text information without opening a website.</span></a></li>
+                    <li><a href="sms-qr-code.html">SMS QR Code<span>Pre-fill text messages and mobile outreach.</span></a></li>
+                    <li><a href="phone-qr-code.html">Phone QR Code<span>Launch click-to-call on mobile devices.</span></a></li>
+                    <li><a href="instagram-qr-code.html">Instagram QR Code<span>Support social growth and profile discovery.</span></a></li>
+                    <li><a href="facebook-qr-code.html">Facebook QR Code<span>Send people to business pages, groups, and promotions.</span></a></li>
+                    <li><a href="twitter-x-qr-code.html">X QR Code<span>Promote profiles, launches, and live campaign conversation.</span></a></li>
+                    <li><a href="tiktok-qr-code.html">TikTok QR Code<span>Drive short-form video discovery from print and events.</span></a></li>
+                    <li><a href="youtube-qr-code.html">YouTube QR Code<span>Promote videos, channels, and subscriber growth.</span></a></li>
+                    <li><a href="whatsapp-qr-code.html">WhatsApp QR Code<span>Open business messaging with less friction.</span></a></li>
+                    <li><a href="location-qr-code.html">Location QR Code<span>Share map pins, directions, and destinations.</span></a></li>
+                    <li><a href="google-maps-qr-code.html">Google Maps QR Code<span>Open route guidance and place details with one scan.</span></a></li>
+                    <li><a href="app-store-qr-code.html">App Store QR Code<span>Drive installs from posters, packaging, or events.</span></a></li>
+                    <li><a href="calendar-event-qr-code.html">Calendar Event QR Code<span>Add a meeting or event directly to someone&apos;s calendar.</span></a></li>
+                    <li><a href="event-ical-qr-code.html">Event iCal QR Code<span>Focus the scan on save-the-date and calendar-add workflows.</span></a></li>
+                    <li><a href="zoom-qr-code.html">Zoom QR Code<span>Help attendees join meetings and webinars from one scan.</span></a></li>
+                    <li><a href="bitcoin-crypto-qr-code.html">Bitcoin and Crypto QR Code<span>Share wallet and payment destinations with less typing.</span></a></li>
+                    <li><a href="qr-code-for-payment.html">Payment QR Code<span>Support cashless checkout and fast transactions.</span></a></li>
+                </ul>
+            </article>
+
+            <article class="guide-card">
+                <h2>Design, branding, and visual polish</h2>
+                <p>Resources for teams that care about appearance as much as function.</p>
+                <ul class="guide-list">
+                    <li><a href="custom-qr-code.html">Custom QR Code<span>Start with custom styling and branded presentation.</span></a></li>
+                    <li><a href="color-qr-code.html">Color QR Code<span>Use color safely without sacrificing scanability.</span></a></li>
+                    <li><a href="logo-qr-code.html">Logo QR Code<span>Add brand marks while protecting readability.</span></a></li>
+                    <li><a href="rounded-qr-code.html">Rounded QR Code<span>Create softer-looking codes for modern layouts.</span></a></li>
+                    <li><a href="qr-code-frame.html">QR Code Frame<span>Wrap the code with call-to-action framing.</span></a></li>
+                    <li><a href="transparent-qr-code.html">Transparent QR Code<span>Overlay QR codes on layered artwork.</span></a></li>
+                    <li><a href="qr-code-with-image.html">QR Code With Image<span>Blend visuals into the center area carefully.</span></a></li>
+                    <li><a href="gradient-qr-code.html">Gradient QR Code<span>Apply branded color transitions with contrast control.</span></a></li>
+                    <li><a href="branded-qr-code.html">Branded QR Code<span>Align the code with your visual identity and trust signals.</span></a></li>
+                    <li><a href="cute-qr-code.html">Cute QR Code<span>Use playful styling without losing the functional scan field.</span></a></li>
+                    <li><a href="black-white-qr-code.html">Black and White QR Code<span>Use the most reliable visual treatment when scan success matters most.</span></a></li>
+                    <li><a href="minimalist-qr-code.html">Minimalist QR Code<span>Keep layouts premium and uncluttered without losing usability.</span></a></li>
+                    <li><a href="qr-code-art.html">QR Code Art<span>Push creative design while protecting enough structure to scan.</span></a></li>
+                </ul>
+            </article>
+
+            <article class="guide-card">
+                <h2>Output formats and print quality</h2>
+                <p>Choose the right export format for web, print, packaging, or design teams.</p>
+                <ul class="guide-list">
+                    <li><a href="qr-code-png.html">QR Code PNG<span>Default image output for most screen use.</span></a></li>
+                    <li><a href="qr-code-svg.html">QR Code SVG<span>Scalable vector export for sharp resizing.</span></a></li>
+                    <li><a href="qr-code-jpg.html">QR Code JPG<span>Compressed format for simple sharing workflows.</span></a></li>
+                    <li><a href="qr-code-pdf.html">QR Code PDF<span>Print-ready placement inside portable documents.</span></a></li>
+                    <li><a href="high-resolution-qr-code.html">High-Resolution QR Code<span>Prepare large-format or detailed print assets.</span></a></li>
+                    <li><a href="qr-code-300dpi.html">QR Code 300 DPI<span>Meet common professional print requirements.</span></a></li>
+                    <li><a href="qr-code-eps.html">QR Code EPS<span>Pass clean vector files into design and prepress tools.</span></a></li>
+                    <li><a href="qr-code-vector.html">QR Code Vector<span>Choose scalable master assets for print and flexible reuse.</span></a></li>
+                    <li><a href="qr-code-print-quality.html">QR Code Print Quality<span>Avoid the production mistakes that break printed scans.</span></a></li>
+                    <li><a href="qr-code-transparent-background.html">QR Code Transparent Background<span>Use transparent exports safely in layered layouts.</span></a></li>
+                    <li><a href="qr-code-download.html">QR Code Download<span>Pick the right file type before saving the final asset.</span></a></li>
+                </ul>
+            </article>
+
+            <article class="guide-card">
+                <h2>Education and core concepts</h2>
+                <p>Use these pages to cover foundational search intent and explain how QR systems work.</p>
+                <ul class="guide-list">
+                    <li><a href="what-is-a-qr-code.html">What Is a QR Code<span>Definition, use cases, and why QR codes are so common.</span></a></li>
+                    <li><a href="how-qr-codes-work.html">How QR Codes Work<span>Learn the mechanics behind encoding and scanning.</span></a></li>
+                    <li><a href="history-of-qr-codes.html">History of QR Codes<span>See how the format moved from factories into everyday mobile life.</span></a></li>
+                    <li><a href="dynamic-vs-static-qr-code.html">Dynamic vs Static QR Code<span>Choose the right QR setup for the job.</span></a></li>
+                    <li><a href="qr-code-error-correction.html">QR Code Error Correction<span>Understand L, M, Q, and H recovery levels.</span></a></li>
+                    <li><a href="qr-code-best-practices.html">QR Code Best Practices<span>Cover the operational rules that prevent common failures.</span></a></li>
+                    <li><a href="qr-code-vs-barcode.html">QR Code vs Barcode<span>Choose the right code system for the right workflow.</span></a></li>
+                    <li><a href="how-to-scan-qr-code.html">How to Scan a QR Code<span>Start with the simplest steps for phones and screenshots.</span></a></li>
+                    <li><a href="qr-code-security-risks.html">QR Code Security Risks<span>Recognize phishing, tampering, and risky destinations.</span></a></li>
+                    <li><a href="qr-code-capacity-limits.html">QR Code Capacity Limits<span>Understand how much data fits before reliability drops.</span></a></li>
+                </ul>
+            </article>
+
+            <article class="guide-card">
+                <h2>Industry use cases</h2>
+                <p>Long-tail pages built for businesses that need scenario-specific guidance.</p>
+                <ul class="guide-list">
+                    <li><a href="qr-code-for-restaurant.html">QR Code for Restaurant<span>Menus, table service, and in-store engagement.</span></a></li>
+                    <li><a href="qr-code-for-menu.html">QR Code for Menu<span>Dedicated menu-sharing workflows.</span></a></li>
+                    <li><a href="qr-code-for-salon.html">QR Code for Salon<span>Bookings, promotions, and client retention.</span></a></li>
+                    <li><a href="qr-code-for-gym.html">QR Code for Gym<span>Member onboarding and class access.</span></a></li>
+                    <li><a href="qr-code-for-school.html">QR Code for School<span>Campus communication and handout delivery.</span></a></li>
+                    <li><a href="qr-code-for-real-estate.html">QR Code for Real Estate<span>Listings, property details, and open-house follow-up.</span></a></li>
+                    <li><a href="qr-code-for-hospital.html">QR Code for Hospital<span>Wayfinding, intake, and patient information access.</span></a></li>
+                    <li><a href="qr-code-for-business-card.html">QR Code for Business Card<span>Networking pages and portable contact sharing.</span></a></li>
+                    <li><a href="qr-code-for-hotel.html">QR Code for Hotel<span>Guest check-in, service menus, and room info.</span></a></li>
+                    <li><a href="qr-code-for-retail.html">QR Code for Retail<span>Product detail, in-store conversion, and loyalty flows.</span></a></li>
+                    <li><a href="qr-code-for-events.html">QR Code for Events<span>Ticketing, check-in, and event engagement.</span></a></li>
+                    <li><a href="qr-code-for-ecommerce.html">QR Code for Ecommerce<span>Physical-to-digital shopping paths and remarketing.</span></a></li>
+                    <li><a href="qr-code-for-packaging.html">QR Code for Packaging<span>Unboxing, product education, and authenticity.</span></a></li>
+                    <li><a href="qr-code-for-cafe.html">QR Code for Cafe<span>Menus, loyalty, retail beans, and in-store engagement.</span></a></li>
+                    <li><a href="qr-code-for-logistics.html">QR Code for Logistics<span>Labels, warehouse flows, delivery proof, and assets.</span></a></li>
+                    <li><a href="qr-code-for-nonprofit.html">QR Code for Nonprofit<span>Fundraising, volunteer signups, and outreach campaigns.</span></a></li>
+                    <li><a href="qr-code-for-church.html">QR Code for Church<span>Support giving, prayer requests, signups, and member communication.</span></a></li>
+                    <li><a href="qr-code-for-museum.html">QR Code for Museum<span>Exhibit storytelling, audio guides, and membership growth.</span></a></li>
+                    <li><a href="qr-code-for-pharmacy.html">QR Code for Pharmacy<span>Refills, education, services, and trusted in-store workflows.</span></a></li>
+                </ul>
+            </article>
+
+            <article class="guide-card">
+                <h2>Platform and device help</h2>
+                <p>High-intent support pages for people scanning on specific phones and browser contexts.</p>
+                <ul class="guide-list">
+                    <li><a href="qr-code-iphone.html">QR Code on iPhone<span>Scan and troubleshoot QR codes on iOS.</span></a></li>
+                    <li><a href="qr-code-android.html">QR Code on Android<span>Use Camera and Google Lens across Android devices.</span></a></li>
+                    <li><a href="scan-qr-code-online.html">Scan QR Code Online<span>Decode QR codes in a browser or from uploaded images.</span></a></li>
+                    <li><a href="qr-code-without-app.html">QR Code Without App<span>Use built-in phone tools instead of downloading a scanner.</span></a></li>
+                    <li><a href="qr-code-chrome.html">QR Code in Chrome<span>Test browser-based QR journeys and image review workflows.</span></a></li>
+                    <li><a href="qr-code-camera.html">QR Code Camera<span>Use the built-in phone camera for faster scanning.</span></a></li>
+                    <li><a href="qr-code-mobile.html">QR Code Mobile<span>Design scan and landing-page experiences for phones first.</span></a></li>
+                    <li><a href="qr-code-windows.html">QR Code on Windows<span>Validate QR files and scans from a Windows PC or laptop.</span></a></li>
+                    <li><a href="qr-code-mac.html">QR Code on Mac<span>Review and decode QR codes from Mac-based design workflows.</span></a></li>
+                </ul>
+            </article>
+
+            <article class="guide-card">
+                <h2>Developer, automation, and advanced workflows</h2>
+                <p>Implementation guides for teams building QR generation into products and campaigns.</p>
+                <ul class="guide-list">
+                    <li><a href="python-qr-code-generator.html">Python QR Code Generator<span>Generate and serve QR codes with Python.</span></a></li>
+                    <li><a href="javascript-qr-code-generator.html">JavaScript QR Code Generator<span>Create codes directly in the browser.</span></a></li>
+                    <li><a href="qr-code-api.html">QR Code API<span>Design API workflows and scalable integrations.</span></a></li>
+                    <li><a href="qr-code-api-free.html">Free QR Code API<span>Decide when a free API is enough and when it becomes a risk.</span></a></li>
+                    <li><a href="react-qr-code-generator.html">React QR Code Generator<span>Build QR components into React products.</span></a></li>
+                    <li><a href="flutter-qr-code.html">Flutter QR Code<span>Plan generation and scanning inside mobile apps.</span></a></li>
+                    <li><a href="php-qr-code-generator.html">PHP QR Code Generator<span>Use QR generation in PHP and Laravel stacks.</span></a></li>
+                    <li><a href="java-qr-code-generator.html">Java QR Code Generator<span>Spring and ZXing-based implementations.</span></a></li>
+                    <li><a href="nodejs-qr-code.html">Node.js QR Code<span>Server-side generation and streaming responses.</span></a></li>
+                    <li><a href="bulk-qr-code-generator.html">Bulk QR Code Generator<span>Batch creation for CSV imports and operations teams.</span></a></li>
+                    <li><a href="dynamic-qr-code-generator.html">Dynamic QR Code Generator<span>Edit destinations after print and track campaign updates.</span></a></li>
+                    <li><a href="google-sheets-qr-code.html">Google Sheets QR Code<span>Manage QR generation from spreadsheet rows and automations.</span></a></li>
+                    <li><a href="excel-vba-qr-code.html">Excel VBA QR Code<span>Use workbook-driven automation for labels and records.</span></a></li>
+                    <li><a href="batch-qr-code-generator.html">Batch QR Code Generator<span>Design reliable high-volume generation workflows.</span></a></li>
+                    <li><a href="qr-code-open-source.html">Open Source QR Code Generator<span>Evaluate self-hosted and library-based build paths.</span></a></li>
+                    <li><a href="qr-code-library.html">QR Code Library<span>Choose the right implementation library for your stack.</span></a></li>
+                    <li><a href="qr-code-integration.html">QR Code Integration<span>Add QR generation to products, dashboards, and systems.</span></a></li>
+                </ul>
+            </article>
+
+            <article class="guide-card">
+                <h2>Troubleshooting and scan fixes</h2>
+                <p>Help users recover from scan issues and avoid common quality mistakes.</p>
+                <ul class="guide-list">
+                    <li><a href="qr-code-not-working.html">QR Code Not Working<span>Diagnose common scan failures and link issues.</span></a></li>
+                    <li><a href="qr-code-size.html">QR Code Size<span>Choose dimensions that match viewing distance and medium.</span></a></li>
+                    <li><a href="qr-code-blurry.html">QR Code Blurry<span>Fix soft exports, print blur, and compression issues.</span></a></li>
+                    <li><a href="qr-code-too-small.html">QR Code Too Small<span>Find the size needed for reliable real-world scans.</span></a></li>
+                    <li><a href="qr-code-wrong-link.html">QR Code Wrong Link<span>Fix outdated, incorrect, or mismapped destinations.</span></a></li>
+                    <li><a href="qr-code-scan-distance.html">QR Code Scan Distance<span>Plan size and placement for real-world viewing range.</span></a></li>
+                    <li><a href="qr-code-expired.html">QR Code Expired<span>Understand why a code stops working over time.</span></a></li>
+                    <li><a href="qr-code-light-background.html">QR Code Light Background<span>Use contrast rules that keep soft designs scanable.</span></a></li>
+                    <li><a href="qr-code-dark-mode-fix.html">QR Code Dark Mode Fix<span>Keep on-screen QR codes readable in dark interfaces.</span></a></li>
+                </ul>
+            </article>
+        </section>
+
+        <section class="footer-cta">
+            <div>
+                <h2>Need to build one now?</h2>
+                <p>Open the main generator for immediate creation, or use the API and developer pages when you are building QR workflows into a product, dashboard, or campaign engine.</p>
+            </div>
+            <div class="hero-actions">
+                <a class="button button-primary" href="free-qr-code-generator.html">Generate a QR code</a>
+                <a class="button button-secondary" href="bulk-qr-code-generator.html">See bulk workflows</a>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

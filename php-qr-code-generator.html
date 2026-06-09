@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHP QR Code Generator - Laravel & WordPress Integration</title>
+    <meta name="description" content="Generate QR codes with PHP. Endroid library, Laravel integration, WordPress plugins. Complete code examples and best practices.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #777BB4 0%, #6B4BA0 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #6B4BA0; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #f3e5f5; padding: 20px; border-left: 4px solid #6B4BA0; border-radius: 4px; margin: 20px 0; }
+        .cta-button { background: #6B4BA0; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #552987; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #6B4BA0; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>PHP QR Code Generator</h1>
+        <p class="subtitle">Generate QR codes with PHP. Endroid library, Laravel integration, WordPress plugins, and more.</p>
+    </header>
+
+    <div class="section">
+        <h2>Popular PHP QR Libraries</h2>
+        <ul>
+            <li><strong>Endroid QR Code:</strong> Most popular, flexible, well-maintained</li>
+            <li><strong>Bacon QR Code:</strong> Pure PHP implementation, no external dependencies</li>
+            <li><strong>PHP QR Code:</strong> Lightweight, good for simple use cases</li>
+            <li><strong>Picqer QR Code:</strong> Modern, easy to use</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Installation</h2>
+
+        <h3>Composer Install</h3>
+        <pre><code>composer require endroid/qr-code</code></pre>
+
+        <h3>Basic Setup</h3>
+        <pre><code>use Endroid\QrCode\QrCode;
+
+$qrCode = new QrCode('https://example.com');
+$qrCode
+    ->setSize(300)
+    ->setMargin(10)
+    ->setEncoding('UTF-8')
+    ->setErrorCorrectionLevel(ErrorCorrectionLevel::HIGH)
+    ->setForegroundColor(new Color(0, 0, 0))
+    ->setBackgroundColor(new Color(255, 255, 255));
+
+header('Content-Type: ' . $qrCode->getContentType());
+echo $qrCode->writeString();</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Save to File</h2>
+
+        <pre><code>use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
+
+$qrCode = new QrCode('https://example.com');
+
+$writer = new PngWriter();
+$result = $writer->write($qrCode);
+
+// Save to file
+$result->saveToFile('qrcode.png');
+
+// Or get data URL
+$dataUri = $result->getDataUri();</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Laravel Integration</h2>
+
+        <h3>Generate in Controller</h3>
+        <pre><code>namespace App\Http\Controllers;
+
+use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
+
+class QRController extends Controller
+{
+    public function generate(Request $request)
+    {
+        $url = $request->input('url', 'https://example.com');
+        
+        $qrCode = new QrCode($url);
+        $writer = new PngWriter();
+        $result = $writer->write($qrCode);
+        
+        return response()
+            ->stream(function () use ($result) {
+                echo $result->getString();
+            }, 200, [
+                'Content-Type' => 'image/png',
+                'Content-Disposition' => 'attachment; filename="qrcode.png"'
+            ]);
+    }
+}</code></pre>
+
+        <h3>Routes</h3>
+        <pre><code>Route::get('/qr', [QRController::class, 'generate']);
+// Usage: /qr?url=https://example.com</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>WordPress Integration</h2>
+
+        <h3>WordPress Plugin Example</h3>
+        <pre><code>&lt;?php
+/*
+Plugin Name: QR Code Generator
+Description: Generate QR codes on posts
+*/
+
+add_shortcode('qr_code', function($atts) {
+    $atts = shortcode_atts([
+        'url' => get_permalink(),
+        'size' => 300
+    ], $atts);
+    
+    require_once(plugin_dir_path(__FILE__) . 'vendor/autoload.php');
+    
+    $qrCode = new \Endroid\QrCode\QrCode($atts['url']);
+    $qrCode->setSize($atts['size']);
+    
+    // Implement PNG output logic
+});
+?&gt;</code></pre>
+
+        <h3>Usage in Posts</h3>
+        <pre><code>[qr_code url="https://example.com" size="300"]</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Batch Generation</h2>
+
+        <pre><code>use Endroid\QrCode\QrCode;
+use Endroid\QrCode\Writer\PngWriter;
+
+$urls = [
+    'https://example.com/1',
+    'https://example.com/2',
+    'https://example.com/3',
+];
+
+$writer = new PngWriter();
+
+foreach ($urls as $index => $url) {
+    $qrCode = new QrCode($url);
+    $result = $writer->write($qrCode);
+    $result->saveToFile("qrcode_$index.png");
+}
+
+echo "Generated " . count($urls) . " QR codes!";</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Error Correction Levels</h2>
+
+        <pre><code>use Endroid\QrCode\ErrorCorrectionLevel;
+
+// Four levels available:
+ErrorCorrectionLevel::LOW        // ~7% recovery
+ErrorCorrectionLevel::MEDIUM     // ~15% recovery  
+ErrorCorrectionLevel::QUARTILE   // ~25% recovery
+ErrorCorrectionLevel::HIGH       // ~30% recovery (recommended)</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Best Practices</h2>
+
+        <ul>
+            <li><strong>Use HIGH error correction</strong> for printed materials</li>
+            <li><strong>Cache generated codes</strong> to reduce server load</li>
+            <li><strong>Validate input</strong> before generating QR codes</li>
+            <li><strong>Set expiration</strong> for temporary QR codes</li>
+            <li><strong>Log generation</strong> for analytics and troubleshooting</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Generate Your QR Codes</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Create QR Codes Now</a>
+        
+        <div class="link-section">
+            <p><strong>Related Resources:</strong></p>
+            <a href="python-qr-code-generator.html">Python QR Code</a>
+            <a href="java-qr-code-generator.html">Java QR Code</a>
+            <a href="nodejs-qr-code.html">Node.js QR Code</a>
+            <a href="qr-code-api.html">QR Code API</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. Built for PHP developers.</p>
+</footer>
+
+</body>
+</html>

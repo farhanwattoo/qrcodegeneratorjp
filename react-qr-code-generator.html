@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React QR Code Generator - Component Tutorial & Examples</title>
+    <meta name="description" content="Generate QR codes in React. Complete guide with hooks, functional components, npm packages, and state management examples.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #61DAFB 0%, #00A8E1 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #00A8E1; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #e1f5fe; padding: 20px; border-left: 4px solid #00A8E1; border-radius: 4px; margin: 20px 0; }
+        .cta-button { background: #00A8E1; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #0086B3; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #00A8E1; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>React QR Code Generator</h1>
+        <p class="subtitle">Build QR code generation into your React apps. Hooks, components, and state management patterns.</p>
+    </header>
+
+    <div class="section">
+        <h2>Why React for QR Codes</h2>
+        <ul>
+            <li><strong>Component Reusability:</strong> Create once, use everywhere</li>
+            <li><strong>State Management:</strong> Reactive updates to QR codes</li>
+            <li><strong>Performance:</strong> Memoization prevents unnecessary re-renders</li>
+            <li><strong>Integration:</strong> Works with Redux, Context API, Zustand</li>
+            <li><strong>Testing:</strong> Easy to test component behavior</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Installation</h2>
+        <pre><code>npm install qrcode.react</code></pre>
+
+        <div class="highlight">
+            <strong>Alternative libraries:</strong> qrcode, jsqr, qr-image (pick based on your needs)
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Basic React Component</h2>
+
+        <h3>Functional Component</h3>
+        <pre><code>import QRCode from 'qrcode.react';
+
+export default function BasicQR() {
+  return (
+    &lt;QRCode
+      value="https://example.com"
+      size={256}
+      level="H"
+      includeMargin={true}
+      fgColor="#000000"
+      bgColor="#FFFFFF"
+    /&gt;
+  );
+}</code></pre>
+
+        <h3>With useRef for Download</h3>
+        <pre><code>import { useRef } from 'react';
+import QRCode from 'qrcode.react';
+
+export default function DownloadableQR() {
+  const qrRef = useRef();
+
+  const downloadQR = () => {
+    const canvas = qrRef.current.querySelector('canvas');
+    const url = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'qrcode.png';
+    link.click();
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;QRCode
+        ref={qrRef}
+        value="https://example.com"
+        size={256}
+      /&gt;
+      &lt;button onClick={downloadQR}&gt;Download QR&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>State Management Pattern</h2>
+
+        <h3>useState Hook</h3>
+        <pre><code>import { useState } from 'react';
+import QRCode from 'qrcode.react';
+
+export default function DynamicQR() {
+  const [url, setUrl] = useState('https://example.com');
+  const [color, setColor] = useState('#000000');
+  const [size, setSize] = useState(256);
+
+  return (
+    &lt;div style={{ padding: '20px' }}&gt;
+      &lt;input
+        type="text"
+        value={url}
+        onChange={(e) => setUrl(e.target.value)}
+        placeholder="Enter URL or text"
+        style={{ display: 'block', marginBottom: '10px', width: '100%', padding: '8px' }}
+      /&gt;
+
+      &lt;label&gt;
+        Size:
+        &lt;input
+          type="range"
+          min="100"
+          max="500"
+          value={size}
+          onChange={(e) => setSize(Number(e.target.value))}
+        /&gt;
+      &lt;/label&gt;
+
+      &lt;label style={{ marginLeft: '20px' }}&gt;
+        Color:
+        &lt;input
+          type="color"
+          value={color}
+          onChange={(e) => setColor(e.target.value)}
+        /&gt;
+      &lt;/label&gt;
+
+      &lt;div style={{ marginTop: '20px' }}&gt;
+        &lt;QRCode value={url} size={size} fgColor={color} /&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Advanced Patterns</h2>
+
+        <h3>With Custom Hook</h3>
+        <pre><code>import { useState, useCallback } from 'react';
+import QRCode from 'qrcode.react';
+
+function useQRCode(initialValue = '') {
+  const [value, setValue] = useState(initialValue);
+  const [options, setOptions] = useState({
+    size: 256,
+    fgColor: '#000000',
+    bgColor: '#FFFFFF',
+    level: 'H'
+  });
+
+  const updateValue = useCallback((newValue) => setValue(newValue), []);
+  const updateOptions = useCallback((newOptions) => {
+    setOptions(prev => ({ ...prev, ...newOptions }));
+  }, []);
+
+  return { value, options, updateValue, updateOptions };
+}
+
+export default function QRGenerator() {
+  const { value, options, updateValue, updateOptions } = 
+    useQRCode('https://example.com');
+
+  return (
+    &lt;div&gt;
+      &lt;QRCode {...options} value={value} /&gt;
+      &lt;input
+        value={value}
+        onChange={(e) => updateValue(e.target.value)}
+      /&gt;
+      &lt;button onClick={() => updateOptions({ level: 'L' })}&gt;
+        Lower Error Correction
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+        <h3>With Context API</h3>
+        <pre><code>import { createContext, useState } from 'react';
+
+const QRContext = createContext();
+
+export function QRProvider({ children }) {
+  const [qrValue, setQRValue] = useState('https://example.com');
+
+  return (
+    &lt;QRContext.Provider value={{ qrValue, setQRValue }}&gt;
+      {children}
+    &lt;/QRContext.Provider&gt;
+  );
+}
+
+export function useQR() {
+  return useContext(QRContext);
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Performance Optimization</h2>
+
+        <h3>Memoization</h3>
+        <pre><code>import { useMemo } from 'react';
+import QRCode from 'qrcode.react';
+
+export default function OptimizedQR({ data }) {
+  const memoizedValue = useMemo(() => data, [data]);
+
+  return &lt;QRCode value={memoizedValue} size={256} /&gt;;
+}</code></pre>
+
+        <h3>Lazy Loading</h3>
+        <pre><code>import { lazy, Suspense } from 'react';
+
+const LazyQR = lazy(() => import('./QRComponent'));
+
+export default function App() {
+  return (
+    &lt;Suspense fallback={&lt;div&gt;Loading...&lt;/div&gt;}&gt;
+      &lt;LazyQR /&gt;
+    &lt;/Suspense&gt;
+  );
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Best Practices</h2>
+
+        <ul>
+            <li><strong>Memoize heavy computations</strong> with useMemo</li>
+            <li><strong>Use useRef</strong> for canvas operations</li>
+            <li><strong>Avoid re-renders</strong> with React.memo or useMemo</li>
+            <li><strong>Handle errors</strong> gracefully</li>
+            <li><strong>Test component</strong> with React Testing Library</li>
+            <li><strong>Type with TypeScript</strong> for better DX</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Generate Your QR Codes</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Create QR Codes Now</a>
+        
+        <div class="link-section">
+            <p><strong>Related Resources:</strong></p>
+            <a href="javascript-qr-code-generator.html">JavaScript QR Code</a>
+            <a href="qr-code-api.html">QR Code API</a>
+            <a href="nodejs-qr-code.html">Node.js QR Code</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. React components for QR generation.</p>
+</footer>
+
+</body>
+</html>

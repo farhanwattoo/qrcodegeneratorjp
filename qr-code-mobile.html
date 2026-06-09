@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Mobile - Mobile-First Design and Scanning Guidance</title>
+    <meta name="description" content="Design QR code campaigns for mobile-first behavior, from scan distance and landing page speed to camera usability, file handling, and on-phone conversion paths.">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "Segoe UI", Arial, sans-serif; color: #203145; line-height: 1.7; background: #f5f9fd; }
+        .container { max-width: 920px; margin: 0 auto; padding: 24px; }
+        header { background: linear-gradient(135deg, #1d4ed8 0%, #7c3aed 100%); color: #fff; padding: 52px 28px; border-radius: 22px; margin-bottom: 24px; }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.06; margin-bottom: 12px; }
+        .subtitle { max-width: 760px; color: rgba(255, 255, 255, 0.92); }
+        .section { background: #fff; padding: 28px; margin-bottom: 18px; border-radius: 18px; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07); border: 1px solid #d9e8f4; }
+        h2 { font-size: 1.65rem; color: #143b68; margin-bottom: 14px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 24px; }
+        li { margin-bottom: 8px; }
+        .callout { background: #eef2ff; border-left: 4px solid #6366f1; padding: 16px 18px; border-radius: 12px; margin: 18px 0; }
+        .cta { display: inline-block; background: #1d4ed8; color: #fff; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-weight: 700; margin-right: 12px; margin-top: 8px; }
+        .secondary { background: #ede9fe; color: #4c1d95; }
+        .links a { color: #1d4ed8; text-decoration: none; margin-right: 18px; font-weight: 600; }
+        footer { text-align: center; color: #66768a; padding: 10px 0 22px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>QR code mobile guide</h1>
+        <p class="subtitle">Most QR scans start and finish on a phone, so mobile behavior should shape every design choice. A great QR campaign is not only easy to scan. It also sends people into a mobile destination that loads fast and makes the next step obvious.</p>
+    </header>
+
+    <div class="section">
+        <h2>What mobile-first really means</h2>
+        <ul>
+            <li>The code is large enough for handheld scanning.</li>
+            <li>The contrast holds up in sunlight, glare, and low-light environments.</li>
+            <li>The landing page or file opens cleanly on a phone browser.</li>
+            <li>The CTA after scan is simple enough for someone standing, walking, or in-store.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Design for the moment of scan</h2>
+        <ol>
+            <li>Place the code at a reachable height and realistic viewing distance.</li>
+            <li>Keep surrounding copy short and action-focused.</li>
+            <li>Avoid forcing users to pinch-zoom or hunt for the actual button after scan.</li>
+            <li>Use file types and pages that phones can open without friction.</li>
+        </ol>
+        <div class="callout">A QR code can scan perfectly and still fail the user if the mobile page is slow, cluttered, or impossible to use with one hand.</div>
+    </div>
+
+    <div class="section">
+        <h2>Common mobile problems</h2>
+        <ul>
+            <li>PDFs that are readable only on desktop</li>
+            <li>Checkout flows with too many fields</li>
+            <li>Heavy image pages that stall on mobile data</li>
+            <li>Buttons hidden below long intros or pop-ups</li>
+            <li>Dark-mode styling that weakens QR contrast on screen</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Build better mobile QR journeys</h2>
+        <a class="cta" href="how-to-scan-qr-code.html">Read scanning basics</a>
+        <a class="cta secondary" href="qr-code-dark-mode-fix.html">Fix dark-mode issues</a>
+        <div class="links" style="margin-top:18px;">
+            <a href="how-to-scan-qr-code.html">How to Scan a QR Code</a>
+            <a href="qr-code-camera.html">QR Code Camera</a>
+            <a href="pdf-qr-code.html">PDF QR Code</a>
+            <a href="qr-code-print-quality.html">QR Code Print Quality</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 QR Code Generator JP. Mobile-first QR thinking for better scan and conversion outcomes.</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code API - REST API for Generating QR Codes</title>
+    <meta name="description" content="QR Code API for developers. Generate QR codes via REST API. Simple authentication, high-speed endpoints, enterprise-grade reliability.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #4285F4 0%, #1E88E5 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #1E88E5; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #e3f2fd; padding: 20px; border-left: 4px solid #1E88E5; border-radius: 4px; margin: 20px 0; }
+        .cta-button { background: #1E88E5; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #1565C0; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #1E88E5; text-decoration: none; margin-right: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #e3f2fd; font-weight: bold; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>QR Code API</h1>
+        <p class="subtitle">Enterprise-grade REST API for generating QR codes. Fast, reliable, scalable. Integrate in minutes.</p>
+    </header>
+
+    <div class="section">
+        <h2>Why Use a QR Code API</h2>
+        <ul>
+            <li><strong>Server-Side Generation:</strong> No client-side dependencies</li>
+            <li><strong>Scalability:</strong> Handle millions of QR code requests</li>
+            <li><strong>Consistency:</strong> Guaranteed output quality across all platforms</li>
+            <li><strong>Security:</strong> Generate URLs server-side without exposing logic</li>
+            <li><strong>Analytics:</strong> Track every QR code scan and click</li>
+            <li><strong>Dynamic URLs:</strong> Change QR target without regenerating code</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>API Authentication</h2>
+        
+        <h3>Get API Key</h3>
+        <ol>
+            <li>Sign up at free-qr-code-generator.html</li>
+            <li>Go to Developer Dashboard</li>
+            <li>Generate API key</li>
+            <li>Store securely (never commit to git)</li>
+        </ol>
+
+        <h3>Include in Requests</h3>
+        <pre><code>Authorization: Bearer YOUR_API_KEY</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>API Endpoint Reference</h2>
+
+        <h3>Generate QR Code (Basic)</h3>
+        <pre><code>POST /api/v1/generate
+Content-Type: application/json
+
+{
+  "data": "https://example.com",
+  "size": 300,
+  "errorCorrectionLevel": "H",
+  "format": "png"
+}</code></pre>
+
+        <h3>Response</h3>
+        <pre><code>{
+  "success": true,
+  "qrCode": "https://cdn.qrcodegeneratorjp.com/qr/abc123.png",
+  "id": "qr_abc123",
+  "createdAt": "2026-06-03T10:30:00Z",
+  "expiresAt": "2026-12-03T10:30:00Z"
+}</code></pre>
+
+        <h3>Generate with Customization</h3>
+        <pre><code>POST /api/v1/generate
+
+{
+  "data": "https://example.com",
+  "size": 500,
+  "errorCorrectionLevel": "H",
+  "format": "svg",
+  "colors": {
+    "dark": "#185FA5",
+    "light": "#FFFFFF"
+  },
+  "margin": 2
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>cURL Examples</h2>
+
+        <h3>Simple QR Code</h3>
+        <pre><code>curl -X POST https://api.qrcodegeneratorjp.com/v1/generate \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "data": "https://example.com",
+    "size": 300
+  }'</code></pre>
+
+        <h3>Save to File</h3>
+        <pre><code>curl -X POST https://api.qrcodegeneratorjp.com/v1/generate \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"data":"https://example.com"}' \
+  -o qrcode.png</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Python Integration</h2>
+
+        <pre><code>import requests
+import json
+
+API_KEY = "your_api_key_here"
+API_URL = "https://api.qrcodegeneratorjp.com/v1/generate"
+
+def generate_qr(data, size=300):
+    headers = {
+        "Authorization": f"Bearer {API_KEY}",
+        "Content-Type": "application/json"
+    }
+    
+    payload = {
+        "data": data,
+        "size": size,
+        "errorCorrectionLevel": "H"
+    }
+    
+    response = requests.post(API_URL, headers=headers, json=payload)
+    return response.json()
+
+# Generate QR code
+qr = generate_qr("https://example.com")
+print(f"QR Code: {qr['qrCode']}")</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Node.js Integration</h2>
+
+        <pre><code>const axios = require('axios');
+
+const API_KEY = process.env.QR_API_KEY;
+const API_URL = 'https://api.qrcodegeneratorjp.com/v1/generate';
+
+async function generateQR(data, options = {}) {
+  try {
+    const response = await axios.post(API_URL, {
+      data,
+      size: options.size || 300,
+      errorCorrectionLevel: options.errorCorrectionLevel || 'H',
+      format: options.format || 'png'
+    }, {
+      headers: {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    return response.data;
+  } catch (error) {
+    console.error('QR Generation failed:', error.message);
+    throw error;
+  }
+}
+
+// Usage
+generateQR('https://example.com').then(qr => {
+  console.log('Generated:', qr.qrCode);
+});</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>API Rate Limits & Pricing</h2>
+
+        <table>
+            <tr>
+                <th>Plan</th>
+                <th>Requests/Month</th>
+                <th>Cost</th>
+                <th>Support</th>
+            </tr>
+            <tr>
+                <td><strong>Free</strong></td>
+                <td>1,000</td>
+                <td>$0</td>
+                <td>Community</td>
+            </tr>
+            <tr>
+                <td><strong>Pro</strong></td>
+                <td>100,000</td>
+                <td>$29/mo</td>
+                <td>Email</td>
+            </tr>
+            <tr>
+                <td><strong>Enterprise</strong></td>
+                <td>Unlimited</td>
+                <td>Custom</td>
+                <td>Phone + Slack</td>
+            </tr>
+        </table>
+
+        <h3>Rate Limit Headers</h3>
+        <pre><code>X-RateLimit-Limit: 1000
+X-RateLimit-Remaining: 985
+X-RateLimit-Reset: 1686063600</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Advanced Features</h2>
+
+        <h3>Batch Generation</h3>
+        <pre><code>POST /api/v1/batch-generate
+
+{
+  "requests": [
+    {"data": "https://example.com/1"},
+    {"data": "https://example.com/2"},
+    {"data": "https://example.com/3"}
+  ]
+}
+
+Response:
+{
+  "success": true,
+  "qrCodes": [
+    {"id": "qr_1", "qrCode": "...png"},
+    {"id": "qr_2", "qrCode": "...png"},
+    {"id": "qr_3", "qrCode": "...png"}
+  ]
+}</code></pre>
+
+        <h3>Dynamic QR Codes</h3>
+        <pre><code>POST /api/v1/dynamic-generate
+
+{
+  "data": "https://example.com/1",
+  "dynamicUpdateUrl": true,
+  "expiresIn": 86400
+}
+
+Response:
+{
+  "qrCode": "https://qr.example.com/d/abc123",
+  "updateUrl": "https://api.qrcodegeneratorjp.com/v1/update/abc123"
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Error Handling</h2>
+
+        <h3>Common Errors</h3>
+        <pre><code>// Invalid data
+{
+  "error": "Invalid data",
+  "message": "Data must be between 1 and 2953 characters",
+  "code": "INVALID_DATA"
+}
+
+// Rate limit exceeded
+{
+  "error": "Rate limit exceeded",
+  "message": "You've reached your monthly limit",
+  "code": "RATE_LIMIT_EXCEEDED"
+}
+
+// Invalid API key
+{
+  "error": "Unauthorized",
+  "message": "Invalid or expired API key",
+  "code": "INVALID_API_KEY"
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Best Practices</h2>
+
+        <ul>
+            <li><strong>Cache Results:</strong> Store generated QR codes to avoid duplicate API calls</li>
+            <li><strong>Error Handling:</strong> Implement retry logic with exponential backoff</li>
+            <li><strong>Async Processing:</strong> Use webhooks for batch operations</li>
+            <li><strong>Monitor Usage:</strong> Track API usage to avoid rate limits</li>
+            <li><strong>Security:</strong> Never expose API key in client-side code</li>
+            <li><strong>Timeouts:</strong> Set 10-second timeout for API requests</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Get Started with API</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Get API Key Now</a>
+        
+        <div class="link-section">
+            <p><strong>Related Resources:</strong></p>
+            <a href="javascript-qr-code-generator.html">JavaScript QR Code</a>
+            <a href="bulk-qr-code-generator.html">Bulk QR Generator</a>
+            <a href="python-qr-code-generator.html">Python QR Code</a>
+            <a href="nodejs-qr-code.html">Node.js QR Code</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. API-first QR code generation.</p>
+</footer>
+
+</body>
+</html>

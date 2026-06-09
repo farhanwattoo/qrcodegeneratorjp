@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code JPG - Compressed Images for Web</title>
+    <meta name="description" content="Generate QR codes in JPG format. File compression, web optimization, quality settings, and when to use JPG vs PNG.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #2E7D32; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        .highlight { background: #e8f5e9; padding: 20px; border-left: 4px solid #4CAF50; border-radius: 4px; margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #e8f5e9; font-weight: bold; }
+        .cta-button { background: #4CAF50; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #3d8b40; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #4CAF50; text-decoration: none; margin-right: 20px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>QR Code JPG</h1>
+        <p class="subtitle">Generate QR codes in JPG format. Optimized for web, email, and fast loading. Complete guide and best practices.</p>
+    </header>
+
+    <div class="section">
+        <h2>JPG vs PNG for QR Codes</h2>
+        
+        <table>
+            <tr>
+                <th>Factor</th>
+                <th>JPG</th>
+                <th>PNG</th>
+            </tr>
+            <tr>
+                <td><strong>File Size</strong></td>
+                <td>Smaller (compression)</td>
+                <td>Larger (lossless)</td>
+            </tr>
+            <tr>
+                <td><strong>Transparency</strong></td>
+                <td>✗ Not supported</td>
+                <td>✓ Full support</td>
+            </tr>
+            <tr>
+                <td><strong>Quality</strong></td>
+                <td>Lossy (compression artifacts)</td>
+                <td>Lossless (perfect copy)</td>
+            </tr>
+            <tr>
+                <td><strong>Best For</strong></td>
+                <td>Web, email, quick sharing</td>
+                <td>Print, design, transparency</td>
+            </tr>
+            <tr>
+                <td><strong>Scannability</strong></td>
+                <td>✓ Full at high quality</td>
+                <td>✓ Perfect</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>When to Use JPG QR Codes</h2>
+
+        <ul>
+            <li>📧 Email newsletters (faster loading)</li>
+            <li>🌐 Website images (web optimization)</li>
+            <li>📱 Social media posts (instant preview)</li>
+            <li>💾 File storage (save disk space)</li>
+            <li>🔄 Quick sharing (faster upload/download)</li>
+        </ul>
+
+        <div class="highlight">
+            <strong>Rule of Thumb:</strong> Use JPG for web/email. Use PNG for print/design. Use SVG for scalability.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Quality Settings</h2>
+
+        <h3>JPG Quality Levels</h3>
+        <ul>
+            <li><strong>Quality 95%:</strong> Best for QR codes, minimal compression loss</li>
+            <li><strong>Quality 85%:</strong> Good balance between size and quality</li>
+            <li><strong>Quality 75%:</strong> Acceptable for web, visible compression</li>
+            <li><strong>Quality 60%:</strong> Not recommended (scanning issues possible)</li>
+        </ul>
+
+        <h3>File Size Comparison</h3>
+        <table>
+            <tr>
+                <th>Format</th>
+                <th>Quality</th>
+                <th>Size</th>
+            </tr>
+            <tr>
+                <td>JPG</td>
+                <td>95%</td>
+                <td>2.5 KB</td>
+            </tr>
+            <tr>
+                <td>JPG</td>
+                <td>75%</td>
+                <td>1.2 KB</td>
+            </tr>
+            <tr>
+                <td>PNG</td>
+                <td>Best</td>
+                <td>4.8 KB</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Generation Code</h2>
+
+        <h3>Python</h3>
+        <pre><code>import qrcode
+from PIL import Image
+
+qr = qrcode.QRCode()
+qr.add_data('https://example.com')
+qr.make()
+
+img = qr.make_image(fill_color='black', back_color='white')
+
+# Save as JPG with quality setting
+img = img.convert('RGB')  # JPG requires RGB, not RGBA
+img.save('qrcode.jpg', quality=95)</code></pre>
+
+        <h3>JavaScript</h3>
+        <pre><code>// After generating QR code canvas
+const canvas = document.getElementById('qrCanvas');
+
+// Convert to JPG (data URL)
+const jpgDataUrl = canvas.toDataURL('image/jpeg', 0.95);
+
+// Download
+const link = document.createElement('a');
+link.href = jpgDataUrl;
+link.download = 'qrcode.jpg';
+link.click();</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Best Practices</h2>
+
+        <ul>
+            <li><strong>Use Quality 90%+</strong> to maintain QR readability</li>
+            <li><strong>Test Before Use</strong> - scan JPG version on real devices</li>
+            <li><strong>Simple Designs Only</strong> - avoid gradients/colors with JPG</li>
+            <li><strong>Web Optimization</strong> - Use image optimization tools</li>
+            <li><strong>Consider Format</strong> - JPG best for solid colors only</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Create JPG QR Codes</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Generate JPG QR Codes</a>
+        
+        <div class="link-section">
+            <p><strong>Other Formats:</strong></p>
+            <a href="qr-code-png.html">PNG QR Code</a>
+            <a href="qr-code-pdf.html">PDF QR Code</a>
+            <a href="qr-code-svg.html">SVG QR Code</a>
+            <a href="high-resolution-qr-code.html">High-Resolution QR</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. JPG QR codes for web optimization.</p>
+</footer>
+
+</body>
+</html>

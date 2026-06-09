@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Expired | Why a QR Code Stops Working Later</title>
+    <meta name="description" content="Understand why a QR code seems expired, when the destination has changed or disappeared, and how to keep long-lived QR codes working.">
+    <link rel="canonical" href="https://qrcodegeneratorjp.com/qr-code-expired.html">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: Arial, sans-serif; background: #f6f8fb; color: #243247; line-height: 1.7; }
+        .wrap { max-width: 960px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #945c1f, #6a3e11); color: #fff; padding: 48px 28px; border-radius: 18px; margin: 20px 0 28px; }
+        h1 { font-size: 2.25rem; margin-bottom: 10px; }
+        .subtitle { font-size: 1.05rem; max-width: 760px; opacity: 0.92; }
+        .card { background: #fff; border-radius: 16px; padding: 28px; margin-bottom: 18px; box-shadow: 0 10px 30px rgba(22, 39, 72, 0.08); }
+        h2 { color: #6a3e11; font-size: 1.7rem; margin-bottom: 14px; }
+        h3 { color: #945c1f; font-size: 1.15rem; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 22px; }
+        li { margin-bottom: 8px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 16px; }
+        th, td { padding: 12px; border: 1px solid #d7dfea; text-align: left; vertical-align: top; }
+        th { background: #f7efdf; color: #6a3e11; }
+        .note { background: #fbf4e8; border-left: 4px solid #c57c2f; padding: 18px; border-radius: 10px; }
+        .button { display: inline-block; text-decoration: none; background: #f2c44c; color: #6a3e11; padding: 13px 22px; border-radius: 999px; font-weight: 700; }
+        .links a { color: #6a3e11; text-decoration: none; margin-right: 16px; font-weight: 600; }
+        footer { text-align: center; color: #627389; padding: 24px 0 36px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+    <div class="wrap">
+        <header>
+            <h1>QR Code Expired</h1>
+            <p class="subtitle">A QR code itself does not usually expire. What expires is the destination, redirect rule, token, campaign page, or access rule behind the scan.</p>
+        </header>
+
+        <section class="card">
+            <h2>Why people think a QR code expired</h2>
+            <p>When a code stops opening a useful page, users often say the QR code has expired. In most cases, the printed code is still readable, but the content or system behind it is no longer valid.</p>
+            <ul>
+                <li>The linked page was removed or unpublished</li>
+                <li>A short-lived token inside the URL reached its end date</li>
+                <li>The redirect service or campaign ended</li>
+                <li>The domain changed or was not renewed</li>
+                <li>Access rules now block the user from viewing the page</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>How to check whether it is really expired</h2>
+            <ol>
+                <li>Decode the QR code and inspect the exact URL or text it contains.</li>
+                <li>Open the destination manually in a browser.</li>
+                <li>Check whether the page loads, redirects, or returns an error.</li>
+                <li>If the QR code is dynamic, inspect the destination settings in the management layer.</li>
+                <li>Review any date-based tokens, campaign rules, or access permissions.</li>
+            </ol>
+            <div class="note">
+                <strong>Tip:</strong> A static QR code cannot be updated after print. If the encoded link dies, the only fix is to restore that destination or replace the physical code.
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Common scenarios and fixes</h2>
+            <table>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Likely fix</th>
+                </tr>
+                <tr>
+                    <td>Landing page deleted</td>
+                    <td>Restore the page or publish a replacement at the same URL</td>
+                </tr>
+                <tr>
+                    <td>Campaign redirect ended</td>
+                    <td>Update the redirect destination or replace the campaign logic</td>
+                </tr>
+                <tr>
+                    <td>Domain changed</td>
+                    <td>Restore the domain, add redirects, or regenerate the code</td>
+                </tr>
+                <tr>
+                    <td>One-time token expired</td>
+                    <td>Issue a fresh destination and consider a different architecture</td>
+                </tr>
+                <tr>
+                    <td>Printed static code points to obsolete content</td>
+                    <td>Reprint with a new QR code or use a dynamic system next time</td>
+                </tr>
+            </table>
+        </section>
+
+        <section class="card">
+            <h2>How to prevent future expiry problems</h2>
+            <ul>
+                <li>Use dynamic QR codes for long-lived printed materials</li>
+                <li>Avoid temporary or fragile landing pages for permanent signage</li>
+                <li>Document who owns each destination and who can change it</li>
+                <li>Monitor critical pages so you catch failures before users do</li>
+                <li>Review printed campaigns before domain or platform migrations</li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Best use cases for dynamic QR codes</h2>
+            <p>Menus, posters, packaging, retail signage, museum labels, and event materials often outlive a single campaign page. Dynamic QR codes help protect those placements by keeping the printed code stable even when the content behind it evolves.</p>
+        </section>
+
+        <section class="card links">
+            <h2>Plan for long-lived codes</h2>
+            <p>If a QR code will stay in the world for months or years, design the destination strategy before you print.</p>
+            <a class="button" href="dynamic-qr-code-generator.html">Use dynamic QR workflows</a>
+            <p style="margin-top: 18px;"><strong>Related guides:</strong></p>
+            <a href="dynamic-vs-static-qr-code.html">Dynamic vs Static QR Code</a>
+            <a href="qr-code-wrong-link.html">QR Code Wrong Link</a>
+            <a href="qr-code-not-working.html">QR Code Not Working</a>
+            <a href="qr-code-best-practices.html">QR Code Best Practices</a>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 QR Code Generator JP. Guidance for expired and outdated QR code destinations.</p>
+        </footer>
+    </div>
+</body>
+</html>

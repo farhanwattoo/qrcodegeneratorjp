@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text QR Code Generator - Turn Plain Text Into a Scannable QR Code</title>
+    <meta name="description" content="Create a text QR code for notes, instructions, product details, and offline information. Learn when plain-text QR codes work best and how to keep them scannable.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: "Segoe UI", Arial, sans-serif; color: #203145; line-height: 1.7; background: #f5f9fd; }
+        .container { max-width: 920px; margin: 0 auto; padding: 24px; }
+        header { background: linear-gradient(135deg, #1d4ed8 0%, #0f766e 100%); color: #fff; padding: 52px 28px; border-radius: 22px; margin-bottom: 24px; }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.06; margin-bottom: 12px; }
+        .subtitle { max-width: 720px; color: rgba(255,255,255,0.9); }
+        .section { background: #fff; padding: 28px; margin-bottom: 18px; border-radius: 18px; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07); border: 1px solid #d9e8f4; }
+        h2 { font-size: 1.65rem; color: #143b68; margin-bottom: 14px; }
+        h3 { font-size: 1.12rem; color: #1f4c7f; margin: 18px 0 10px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 24px; }
+        li { margin-bottom: 8px; }
+        .callout { background: #eef7ff; border-left: 4px solid #2563eb; padding: 16px 18px; border-radius: 12px; margin: 18px 0; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; margin-top: 14px; }
+        .card { background: #f8fbfe; border: 1px solid #dceaf7; border-radius: 14px; padding: 16px; }
+        .card h4 { color: #174b8a; margin-bottom: 8px; }
+        .cta { display: inline-block; background: #1d4ed8; color: #fff; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-weight: 700; margin-right: 12px; margin-top: 8px; }
+        .secondary { background: #e7f0ff; color: #174b8a; }
+        .links a { color: #1d4ed8; text-decoration: none; margin-right: 18px; font-weight: 600; }
+        footer { text-align: center; color: #66768a; padding: 10px 0 22px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Text QR code generator guide</h1>
+        <p class="subtitle">Use a text QR code when the information should open instantly without a webpage. They are useful for instructions, short notes, product details, access codes, and offline workflows.</p>
+    </header>
+
+    <div class="section">
+        <h2>What is a text QR code?</h2>
+        <p>A text QR code stores plain text directly inside the QR pattern. When someone scans it, their phone or QR reader displays the message instead of opening a URL. That makes it a good fit for simple information that does not need a landing page.</p>
+        <div class="callout">
+            <strong>Best use:</strong> choose a text QR code when the content is short, stable, and useful even without an internet connection.
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Where text QR codes work best</h2>
+        <div class="grid">
+            <div class="card">
+                <h4>Instructions</h4>
+                <p>Show setup steps, handling notes, or booth directions directly after scan.</p>
+            </div>
+            <div class="card">
+                <h4>Offline details</h4>
+                <p>Store room numbers, serial references, support codes, or internal identifiers.</p>
+            </div>
+            <div class="card">
+                <h4>Packaging</h4>
+                <p>Add short care instructions, ingredient notes, or compliance text.</p>
+            </div>
+            <div class="card">
+                <h4>Operations</h4>
+                <p>Support warehouse labels, field notes, event instructions, and quick internal handoffs.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>How to create a text QR code</h2>
+        <ol>
+            <li>Write the exact text you want users to see after scan.</li>
+            <li>Remove anything unnecessary so the message stays short and readable.</li>
+            <li>Paste the text into the generator and preview the result.</li>
+            <li>Choose a size large enough for the placement distance.</li>
+            <li>Test the code on iPhone and Android before printing or publishing.</li>
+        </ol>
+        <h3>What to avoid</h3>
+        <ul>
+            <li>Do not overload the code with long paragraphs if a URL page would work better.</li>
+            <li>Do not rely on line breaks or formatting that may display differently across scanner apps.</li>
+            <li>Do not shrink the code too far just because the content looks simple.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Text QR code vs URL QR code</h2>
+        <p>A text QR code is best when the message itself is the final destination. A URL QR code is better when the content may change, needs analytics, or requires images, forms, or downloads.</p>
+        <ul>
+            <li><strong>Use text:</strong> fixed instructions, short notes, room details, serial references.</li>
+            <li><strong>Use URL:</strong> menus, PDFs, promotions, app installs, registration, support pages.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Best practices for scanability</h2>
+        <ul>
+            <li>Keep the message short enough that the QR code does not become overly dense.</li>
+            <li>Use dark modules on a light background with a clear quiet zone.</li>
+            <li>Export at a size that matches the viewing distance and print method.</li>
+            <li>Test with common camera apps, not only one dedicated scanner.</li>
+            <li>If the message may change later, switch to a dynamic URL flow instead of plain text.</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Common questions</h2>
+        <h3>Can a text QR code work offline?</h3>
+        <p>Yes. Because the text is stored in the code itself, the scanner can display it without loading a website.</p>
+        <h3>How much text can I put in a QR code?</h3>
+        <p>Technically quite a lot, but shorter content is much safer. Long text increases data density and makes the code harder to scan when printed small.</p>
+        <h3>When should I not use text QR?</h3>
+        <p>If you need editable content, analytics, buttons, images, or downloadable files, a URL-based QR code is the better choice.</p>
+    </div>
+
+    <div class="section">
+        <h2>Create your text QR code</h2>
+        <p>Generate a plain-text QR code when your audience needs direct information with the fewest possible steps.</p>
+        <a class="cta" href="free-qr-code-generator.html">Generate text QR code</a>
+        <a class="cta secondary" href="qr-code-guides.html">Open guides hub</a>
+        <div class="links" style="margin-top:18px;">
+            <a href="url-qr-code.html">URL QR Code</a>
+            <a href="qr-code-size.html">QR Code Size</a>
+            <a href="dynamic-vs-static-qr-code.html">Dynamic vs Static</a>
+            <a href="qr-code-not-working.html">QR Code Not Working</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 QR Code Generator JP. Plain-text QR workflows made simple.</p>
+    </footer>
+</div>
+</body>
+</html>

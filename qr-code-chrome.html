@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code in Chrome - Browser-Based Scanning and Opening Tips</title>
+    <meta name="description" content="Learn how Chrome fits into QR code workflows, from opening scanned links on mobile to working with QR images, browser tools, and desktop review.">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: "Segoe UI", Arial, sans-serif; color: #203145; line-height: 1.7; background: #f5f9fd; }
+        .container { max-width: 920px; margin: 0 auto; padding: 24px; }
+        header { background: linear-gradient(135deg, #0f9d58 0%, #4285f4 100%); color: #fff; padding: 52px 28px; border-radius: 22px; margin-bottom: 24px; }
+        h1 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.06; margin-bottom: 12px; }
+        .subtitle { max-width: 740px; color: rgba(255, 255, 255, 0.92); }
+        .section { background: #fff; padding: 28px; margin-bottom: 18px; border-radius: 18px; box-shadow: 0 10px 28px rgba(15, 23, 42, 0.07); border: 1px solid #d9e8f4; }
+        h2 { font-size: 1.65rem; color: #14532d; margin-bottom: 14px; }
+        p { margin-bottom: 14px; }
+        ul, ol { margin: 14px 0 14px 24px; }
+        li { margin-bottom: 8px; }
+        .callout { background: #ecfdf5; border-left: 4px solid #22c55e; padding: 16px 18px; border-radius: 12px; margin: 18px 0; }
+        .cta { display: inline-block; background: #0f9d58; color: #fff; text-decoration: none; padding: 13px 22px; border-radius: 999px; font-weight: 700; margin-right: 12px; margin-top: 8px; }
+        .secondary { background: #dbeafe; color: #14532d; }
+        .links a { color: #0f9d58; text-decoration: none; margin-right: 18px; font-weight: 600; }
+        footer { text-align: center; color: #66768a; padding: 10px 0 22px; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>QR code in Chrome</h1>
+        <p class="subtitle">Chrome is usually part of the QR experience after the scan, not the scanner itself. It often opens the destination link, helps review QR images in a browser workflow, and supports quick testing during content or design QA.</p>
+    </header>
+
+    <div class="section">
+        <h2>Where Chrome is useful</h2>
+        <ul>
+            <li>Opening the destination page after a phone scan</li>
+            <li>Reviewing QR-linked landing pages on mobile Chrome</li>
+            <li>Testing whether a QR code destination behaves well in the browser</li>
+            <li>Using browser-based tools to inspect or decode a QR image file</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Chrome-specific workflow tips</h2>
+        <ol>
+            <li>Check that the destination loads cleanly in mobile Chrome, not only in-app browsers.</li>
+            <li>If the QR points to a file, confirm Chrome handles the download or preview gracefully.</li>
+            <li>Test redirects, cookies, and login flows because browser state can affect what users see.</li>
+            <li>Use desktop Chrome to inspect the target page for responsiveness and fallback paths.</li>
+        </ol>
+        <div class="callout">Many QR failures blamed on scanning are actually browser or landing-page failures. Chrome testing is often the fastest way to separate a bad QR from a bad destination.</div>
+    </div>
+
+    <div class="section">
+        <h2>Common issues</h2>
+        <ul>
+            <li>Landing pages that rely on unsupported pop-ups or desktop-only layout</li>
+            <li>Heavy pages that stall on mobile data after the scan</li>
+            <li>Download flows that are unclear or blocked by permissions</li>
+            <li>Redirect chains that create confusing browser behavior</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Test the full browser path</h2>
+        <a class="cta" href="scan-qr-code-online.html">Scan QR code online</a>
+        <a class="cta secondary" href="qr-code-mobile.html">Review mobile QR UX</a>
+        <div class="links" style="margin-top:18px;">
+            <a href="scan-qr-code-online.html">Scan QR Code Online</a>
+            <a href="qr-code-mobile.html">QR Code Mobile</a>
+            <a href="qr-code-windows.html">QR Code Windows</a>
+            <a href="qr-code-mac.html">QR Code Mac</a>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 QR Code Generator JP. Browser-aware QR testing for Chrome-based user journeys.</p>
+    </footer>
+</div>
+</body>
+</html>

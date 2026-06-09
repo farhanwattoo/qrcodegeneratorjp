@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript QR Code Generator - Browser & Node.js Tutorial</title>
+    <meta name="description" content="Generate QR codes with JavaScript. Complete guide with code examples for browsers, React, Vue, and Node.js. Popular libraries and frameworks covered.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif; color: #333; line-height: 1.6; background: #f8f9fa; }
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+        header { background: linear-gradient(135deg, #F7DF1E 0%, #000000 100%); color: white; padding: 60px 20px; border-radius: 12px; margin-bottom: 40px; }
+        h1 { font-size: 2.5em; margin-bottom: 10px; }
+        .subtitle { font-size: 1.1em; opacity: 0.95; }
+        .section { background: white; padding: 30px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+        h2 { font-size: 1.8em; color: #F7DF1E; margin-bottom: 15px; margin-top: 25px; }
+        h3 { font-size: 1.3em; color: #333; margin: 15px 0 10px 0; }
+        p { margin-bottom: 15px; font-size: 1em; }
+        ul, ol { margin: 15px 0 15px 30px; }
+        li { margin-bottom: 8px; }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; }
+        pre { background: #2d2d2d; color: #f8f8f2; padding: 20px; border-radius: 8px; overflow-x: auto; margin: 15px 0; line-height: 1.4; }
+        pre code { background: none; padding: 0; color: inherit; }
+        .highlight { background: #fffacd; padding: 20px; border-left: 4px solid #F7DF1E; border-radius: 4px; margin: 20px 0; }
+        .cta-button { background: #000; color: white; padding: 15px 30px; border: none; border-radius: 6px; font-size: 1.1em; cursor: pointer; text-decoration: none; display: inline-block; margin: 20px 10px 20px 0; transition: background 0.3s; }
+        .cta-button:hover { background: #333; }
+        footer { text-align: center; padding: 30px 20px; color: #666; font-size: 0.9em; }
+        .link-section { background: #f9f9f9; padding: 20px; border-radius: 8px; margin: 20px 0; }
+        .link-section a { color: #000; text-decoration: none; margin-right: 20px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background: #f0f0f0; font-weight: bold; }
+    </style>
+    <meta name="author" content="Liam Williams <LiamWilliams@qrcodegeneratorjp.com>, Omar Farooq <OmarFarooq@qrcodegeneratorjp.com>">
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>JavaScript QR Code Generator</h1>
+        <p class="subtitle">Generate QR codes in browsers and Node.js. Complete guide with React, Vue, Angular integration examples.</p>
+    </header>
+
+    <div class="section">
+        <h2>Why JavaScript for QR Codes</h2>
+        <ul>
+            <li><strong>Client-Side Generation:</strong> No server calls needed for basic codes</li>
+            <li><strong>Fast Performance:</strong> Instant generation in milliseconds</li>
+            <li><strong>Universal Framework Support:</strong> React, Vue, Angular, Svelte all compatible</li>
+            <li><strong>Multiple Environments:</strong> Browser, Node.js, Electron, React Native</li>
+            <li><strong>Zero Dependencies (Most):</strong> Standalone libraries available</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Popular JavaScript QR Libraries</h2>
+        
+        <table>
+            <tr>
+                <th>Library</th>
+                <th>Size</th>
+                <th>Use Case</th>
+                <th>Browser/Node</th>
+            </tr>
+            <tr>
+                <td><strong>qrcode.js</strong></td>
+                <td>2.8 KB</td>
+                <td>Browser - lightweight</td>
+                <td>Browser</td>
+            </tr>
+            <tr>
+                <td><strong>qrcode</strong></td>
+                <td>7 KB</td>
+                <td>Universal - Node & Browser</td>
+                <td>Both</td>
+            </tr>
+            <tr>
+                <td><strong>qrcode.react</strong></td>
+                <td>5 KB</td>
+                <td>React components</td>
+                <td>Browser</td>
+            </tr>
+            <tr>
+                <td><strong>jsQR</strong></td>
+                <td>3 KB</td>
+                <td>Reading QR codes</td>
+                <td>Browser</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h2>Browser QR Code Generation</h2>
+        
+        <h3>Installation</h3>
+        <pre><code>npm install qrcode</code></pre>
+
+        <h3>Basic HTML + JavaScript</h3>
+        <pre><code>&lt;html&gt;
+&lt;body&gt;
+  &lt;div id="qrcode"&gt;&lt;/div&gt;
+  &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode.js/1.0.0/qrcode.min.js"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    new QRCode(document.getElementById("qrcode"), "https://example.com");
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+        <h3>With Canvas & Customization</h3>
+        <pre><code>import QRCode from 'qrcode';
+
+QRCode.toCanvas(
+  document.getElementById('canvas'),
+  'https://qrcodegeneratorjp.com',
+  {
+    color: {
+      dark: '#185FA5',
+      light: '#ffffff'
+    },
+    width: 300,
+    errorCorrectionLevel: 'H'
+  },
+  (error) => {
+    if (error) console.error(error);
+    console.log('QR code generated!');
+  }
+);</code></pre>
+
+        <h3>Download as Image</h3>
+        <pre><code>import QRCode from 'qrcode';
+
+QRCode.toDataURL('https://example.com', {
+  errorCorrectionLevel: 'H',
+  type: 'image/png',
+  quality: 0.95,
+  margin: 1,
+  color: {
+    dark: '#000000',
+    light: '#FFFFFF'
+  }
+})
+.then(url => {
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'qrcode.png';
+  link.click();
+});</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>React Integration</h2>
+        
+        <h3>Using qrcode.react</h3>
+        <pre><code>import QRCode from 'qrcode.react';
+
+function MyQRCode() {
+  const ref = React.useRef();
+
+  const downloadQR = () => {
+    const canvas = ref.current.querySelector('canvas');
+    const url = canvas.toDataURL('image/png');
+    const link = document.createElement('a');
+    link.download = 'qrcode.png';
+    link.href = url;
+    link.click();
+  };
+
+  return (
+    &lt;div&gt;
+      &lt;QRCode
+        ref={ref}
+        value="https://example.com"
+        size={256}
+        bgColor="#ffffff"
+        fgColor="#000000"
+        level="H"
+        includeMargin={true}
+      /&gt;
+      &lt;button onClick={downloadQR}&gt;Download QR&lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+        <h3>With State Management</h3>
+        <pre><code>import { useState } from 'react';
+import QRCode from 'qrcode.react';
+
+export default function QRGenerator() {
+  const [value, setValue] = useState('https://example.com');
+  const [color, setColor] = useState('#000000');
+
+  return (
+    &lt;div&gt;
+      &lt;input
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
+        placeholder="Enter URL or text"
+      /&gt;
+      &lt;input
+        type="color"
+        value={color}
+        onChange={(e) => setColor(e.target.value)}
+      /&gt;
+      &lt;QRCode value={value} fgColor={color} /&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Vue.js Integration</h2>
+        
+        <pre><code>&lt;template&gt;
+  &lt;div&gt;
+    &lt;input v-model="url" placeholder="Enter URL"&gt;
+    &lt;qrcode-vue :value="url" :options="options"&gt;&lt;/qrcode-vue&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+import QrcodeVue from 'qrcode.vue';
+
+export default {
+  components: { QrcodeVue },
+  data() {
+    return {
+      url: 'https://example.com',
+      options: {
+        color: {
+          dark: '#185FA5',
+          light: '#ffffff'
+        },
+        width: 300
+      }
+    };
+  }
+};
+&lt;/script&gt;</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Node.js Server Usage</h2>
+        
+        <h3>Express.js API Endpoint</h3>
+        <pre><code>const express = require('express');
+const QRCode = require('qrcode');
+const app = express();
+
+app.get('/generate', async (req, res) => {
+  try {
+    const { data, size = 300 } = req.query;
+    
+    const qrCode = await QRCode.toDataURL(data, {
+      width: size,
+      color: {
+        dark: '#185FA5',
+        light: '#ffffff'
+      },
+      errorCorrectionLevel: 'H'
+    });
+    
+    res.json({ qrCode });
+  } catch (error) {
+    res.status(500).json({ error: error.message });
+  }
+});
+
+app.listen(3000, () => console.log('QR API running on :3000'));</code></pre>
+
+        <h3>Generate & Save PNG</h3>
+        <pre><code>const QRCode = require('qrcode');
+const fs = require('fs');
+
+async function generateQR() {
+  try {
+    await QRCode.toFile('qrcode.png', 'https://example.com', {
+      color: {
+        dark: '#000000',
+        light: '#FFFFFF'
+      },
+      width: 300,
+      margin: 1,
+      errorCorrectionLevel: 'H'
+    });
+    console.log('QR code saved!');
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+generateQR();</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Advanced Features</h2>
+        
+        <h3>Error Correction Levels</h3>
+        <ul>
+            <li><code>L</code> - 7% error correction (indoor use)</li>
+            <li><code>M</code> - 15% error correction (standard)</li>
+            <li><code>Q</code> - 25% error correction (outdoor use)</li>
+            <li><code>H</code> - 30% error correction (print + logo)</li>
+        </ul>
+
+        <h3>Data Types Supported</h3>
+        <ul>
+            <li>URLs</li>
+            <li>Plain text</li>
+            <li>Email addresses</li>
+            <li>Phone numbers (tel:+1234567890)</li>
+            <li>SMS (sms:+1234567890?body=message)</li>
+            <li>WiFi (WIFI:T:WPA;S:SSID;P:PASSWORD;;)</li>
+            <li>vCard (contact information)</li>
+        </ul>
+
+        <h3>Performance Optimization</h3>
+        <pre><code>// Memoize generated QR codes in React
+import { useMemo } from 'react';
+
+function OptimizedQR({ data }) {
+  const qrCode = useMemo(() => data, [data]);
+  
+  return &lt;QRCode value={qrCode} /&gt;;
+}</code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Best Practices</h2>
+        
+        <ul>
+            <li><strong>Error Handling:</strong> Always wrap generation in try-catch</li>
+            <li><strong>Size Selection:</strong> Minimum 200px for reliable scanning</li>
+            <li><strong>Color Contrast:</strong> Dark on light background works best</li>
+            <li><strong>Caching:</strong> Cache generated QR codes for performance</li>
+            <li><strong>Testing:</strong> Test with multiple QR readers on real devices</li>
+            <li><strong>Accessibility:</strong> Include alt text describing QR purpose</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Common Issues & Solutions</h2>
+        
+        <h3>Q: QR codes won't scan in certain apps</h3>
+        <p><strong>A:</strong> Use error correction level 'H' and test with multiple apps. Some apps have bugs.</p>
+
+        <h3>Q: Performance issues with large batches</h3>
+        <p><strong>A:</strong> Use Worker threads in Node.js or Web Workers in browser for parallel processing.</p>
+
+        <h3>Q: How to add logo to JavaScript-generated QR?</h3>
+        <p><strong>A:</strong> Use Canvas API after generation to overlay logo image.</p>
+
+        <h3>Q: Can I generate QR codes offline?</h3>
+        <p><strong>A:</strong> Yes! JavaScript libraries work completely offline without server dependency.</p>
+    </div>
+
+    <div class="section">
+        <h2>Generate Your QR Codes</h2>
+        <a href="free-qr-code-generator.html" class="cta-button">➜ Create QR Codes Now</a>
+        
+        <div class="link-section">
+            <p><strong>Related Resources:</strong></p>
+            <a href="qr-code-api.html">QR Code API</a>
+            <a href="react-qr-code-generator.html">React QR Code</a>
+            <a href="nodejs-qr-code.html">Node.js QR Code</a>
+            <a href="bulk-qr-code-generator.html">Bulk QR Generator</a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p>&copy; 2026 QR Code Generator JP. Built by developers, for developers.</p>
+</footer>
+
+</body>
+</html>
